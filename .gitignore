@@ -1,0 +1,22 @@
+# Publish only plugin source and the files needed to build it.
+# Analysis, tools, captures, Unity workspaces, staging, docs and generated
+# content stay local, including any new top-level working directories.
+/*
+!/.gitignore
+!/Directory.Build.props
+!/ManimalLighthouse.sln
+!/NuGet.Config
+!/build.ps1
+!/package-release.ps1
+!/lighthouse-client/
+!/lighthouse-server/
+!/lighthouse-shared/
+
+# Generated output and local IDE files within the plugin projects.
+**/bin/
+**/obj/
+**/__pycache__/
+**/.vs/
+**/.idea/
+*.user
+*.suo

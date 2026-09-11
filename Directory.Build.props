@@ -1,0 +1,30 @@
+<Project>
+  <PropertyGroup>
+    <!-- Single source of truth for build and runtime plugin identity. -->
+    <ModVersion>0.1.17</ModVersion>
+    <ModGuid>com.manimal.lighthouse</ModGuid>
+    <ModUsername>Manimal</ModUsername>
+    <ModDisplayName>LighthouseRework</ModDisplayName>
+    <ModClientName>$(ModUsername)-$(ModDisplayName)</ModClientName>
+    <ModServerName>$(ModUsername)$(ModDisplayName)</ModServerName>
+    <!-- Set to the published source repository before a public release. -->
+    <ModSourceUrl></ModSourceUrl>
+    <Authors>$(ModUsername)</Authors>
+    <RepositoryUrl>$(ModSourceUrl)</RepositoryUrl>
+    <PackageProjectUrl>$(ModSourceUrl)</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <SPTPath Condition="'$(SPTPath)' == ''">D:\SPT41Dev</SPTPath>
+    <ServerPath Condition="'$(ServerPath)' == ''">$(SPTPath)\SPT_Runtime</ServerPath>
+    <CommonLibPath Condition="'$(CommonLibPath)' == ''">$(ServerPath)\user\mods\WTT-ServerCommonLib\WTT-ServerCommonLib.dll</CommonLibPath>
+    <GameManaged>$(SPTPath)\EscapeFromTarkov_Data\Managed</GameManaged>
+    <RestoreConfigFile>$(MSBuildThisFileDirectory)NuGet.Config</RestoreConfigFile>
+    <Version>$(ModVersion)</Version>
+    <LangVersion>latest</LangVersion>
+    <Deterministic>true</Deterministic>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <NuGetAudit>false</NuGetAudit>
+  </PropertyGroup>
+</Project>
+
+
+

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net10.0</TargetFramework><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable><AssemblyName>ManimalLighthouse.Server</AssemblyName><Version>$(ModVersion)</Version></PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Btr/Lighthouse.json" LogicalName="Manimal.Lighthouse.Btr.json" />
+    <ProjectReference Include="../lighthouse-shared/lighthouse-shared.csproj" />
+    <Reference Include="WTT-ServerCommonLib"><HintPath>$(CommonLibPath)</HintPath><Private>false</Private></Reference>
+    <Reference Include="SPTarkov.Server.Core"><HintPath>$(ServerPath)/SPTarkov.Server.Core.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="SPTarkov.DI"><HintPath>$(ServerPath)/SPTarkov.DI.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="SPTarkov.Common"><HintPath>$(ServerPath)/SPTarkov.Common.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="SemanticVersioning"><HintPath>$(ServerPath)/SemanticVersioning.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+</Project>

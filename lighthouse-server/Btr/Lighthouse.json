@@ -1,0 +1,143 @@
+{
+  "Routes": {
+    "BtrSkin": "Cleare",
+    "CheckSurfaceForWheelsTimer": 0.05,
+    "DiameterWheel": 57.5,
+    "HeightWheel": 0.65,
+    "HeightWheelMaxPosLimit": 0.8,
+    "HeightWheelMinPosLimit": 0.46,
+    "HeightWheelOffset": -0.075,
+    "SnapToSurfaceWheelsSpeed": 0.15,
+    "SuspensionDamperStiffness": 7000,
+    "SuspensionRestLength": 0.4,
+    "SuspensionSpringStiffness": 80000,
+    "SuspensionTravel": 0.3,
+    "SuspensionWheelRadius": 1.143,
+    "mapID": "Lighthouse",
+    "pathsConfigurations": [
+      {
+        "active": true,
+        "circle": true,
+        "circleCount": 10,
+        "enterPoint": "p9",
+        "exitPoint": "p9",
+        "id": "Route1",
+        "once": false,
+        "pathPoints": [
+          "p1",
+          "p2",
+          "p5",
+          "p6",
+          "p7",
+          "p8",
+          "p4",
+          "p3"
+        ],
+        "skinType": []
+      },
+      {
+        "active": true,
+        "circle": true,
+        "circleCount": 10,
+        "enterPoint": "p10",
+        "exitPoint": "p10",
+        "id": "Route2",
+        "once": false,
+        "pathPoints": [
+          "p3",
+          "p1",
+          "p2",
+          "p5",
+          "p6",
+          "p7",
+          "p8",
+          "p4"
+        ],
+        "skinType": []
+      },
+      {
+        "active": true,
+        "circle": true,
+        "circleCount": 10,
+        "enterPoint": "p10",
+        "exitPoint": "p10",
+        "id": "Route3",
+        "once": false,
+        "pathPoints": [
+          "p3",
+          "p4",
+          "p5",
+          "p6",
+          "p7",
+          "p8",
+          "p2",
+          "p1"
+        ],
+        "skinType": []
+      },
+      {
+        "active": true,
+        "circle": true,
+        "circleCount": 10,
+        "enterPoint": "p9",
+        "exitPoint": "p9",
+        "id": "Route4",
+        "once": false,
+        "pathPoints": [
+          "p1",
+          "p3",
+          "p4",
+          "p5",
+          "p6",
+          "p7",
+          "p8",
+          "p2"
+        ],
+        "skinType": []
+      }
+    ]
+  },
+  "Spawn": {
+    "AccelerationSpeed": 0.3,
+    "BodySwingDamping": 0.6,
+    "BodySwingIntensity": 0.3,
+    "BodySwingReturnSpeed": 1.0,
+    "ChanceSpawn": 100.0,
+    "CheckTurnDistanceTime": 60.0,
+    "DecelerationSpeed": 1.5,
+    "DecreaseSpeedOnTurnLimit": 0.5,
+    "EndSplineDecelerationDistance": 3.0,
+    "MapID": "Lighthouse",
+    "MoveSpeed": 8.0,
+    "PauseDurationRange": {
+      "x": 90.0,
+      "y": 150.0,
+      "z": 0.0
+    },
+    "ReadyToDepartureTime": 15.0,
+    "SpawnPeriod": {
+      "x": 30.0,
+      "y": 60.0,
+      "z": 0.0
+    },
+    "TurnCheckSensitivity": 0.98
+  },
+  "Locales": {
+    "Trading/Dialog/PlayerTaxi/Lighthouse/p1/Description": "Next stop \u2014 northern roadblock. You got the cash?",
+    "Trading/Dialog/PlayerTaxi/Lighthouse/p1/Name": "Northern Checkpoint",
+    "Trading/Dialog/PlayerTaxi/Lighthouse/p2/Description": "I'll stop at the first facility, gotcha. You brought the money, right?",
+    "Trading/Dialog/PlayerTaxi/Lighthouse/p2/Name": "WTP Building 1 Parking",
+    "Trading/Dialog/PlayerTaxi/Lighthouse/p3/Description": "Gonna drop you off near the second facility. Price okay for you, princess?",
+    "Trading/Dialog/PlayerTaxi/Lighthouse/p3/Name": "WTP Building 2 Parking",
+    "Trading/Dialog/PlayerTaxi/Lighthouse/p4/Description": "Crossroads? Sure, not a problem. So, we got a deal?",
+    "Trading/Dialog/PlayerTaxi/Lighthouse/p4/Name": "Village Crossroads",
+    "Trading/Dialog/PlayerTaxi/Lighthouse/p5/Description": "Construction it is. Careful not to get sniped. You got the cash on you?",
+    "Trading/Dialog/PlayerTaxi/Lighthouse/p5/Name": "Construction Site",
+    "Trading/Dialog/PlayerTaxi/Lighthouse/p6/Description": "Okay, dropping you off at the Blueberry checkpoint. Price okay?",
+    "Trading/Dialog/PlayerTaxi/Lighthouse/p6/Name": "UN Checkpoint",
+    "Trading/Dialog/PlayerTaxi/Lighthouse/p7/Description": "I'll stop next to the bridge to the island. Deal?",
+    "Trading/Dialog/PlayerTaxi/Lighthouse/p7/Name": "Road to Lighthouse",
+    "Trading/Dialog/PlayerTaxi/Lighthouse/p8/Description": "Okie-dokie, we'll be heading to the southern road near the tunnel. Hope you have the cash.",
+    "Trading/Dialog/PlayerTaxi/Lighthouse/p8/Name": "Southern Road"
+  }
+}

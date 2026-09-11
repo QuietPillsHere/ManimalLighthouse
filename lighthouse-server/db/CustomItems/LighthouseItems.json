@@ -1,0 +1,1459 @@
+{
+  "67c04b420610e91bea05699c": {
+    "itemTplToClone": "62a0a124de7ac81993580542",
+    "newName": "q_data_map5",
+    "parentId": "5448ecbe4bdc2d60728b4568",
+    "overrideProperties": {
+      "AnimationVariantsNumber": 0,
+      "BackgroundColor": "blue",
+      "CanRequireOnRagfair": false,
+      "CanSellOnRagfair": false,
+      "ConflictingItems": [],
+      "Description": "q_data_map5",
+      "DiscardLimit": 0,
+      "DiscardingBlock": false,
+      "ExamineExperience": 10,
+      "ExamineTime": 1,
+      "ExaminedByDefault": false,
+      "ExtraSizeDown": 0,
+      "ExtraSizeForceAdd": false,
+      "ExtraSizeLeft": 0,
+      "ExtraSizeRight": 0,
+      "ExtraSizeUp": 0,
+      "Height": 1,
+      "HideEntrails": false,
+      "InsuranceDisabled": false,
+      "IsAlwaysAvailableForInsurance": false,
+      "IsLockedafterEquip": false,
+      "IsSecretExitRequirement": false,
+      "IsSpecialSlotOnly": false,
+      "IsUnbuyable": false,
+      "IsUndiscardable": false,
+      "IsUngivable": false,
+      "IsUnremovable": false,
+      "IsUnsaleable": false,
+      "ItemSound": "item_book",
+      "LeftHandItem": false,
+      "LootExperience": 15,
+      "MergesWithChildren": false,
+      "Name": "q_data_map5",
+      "NotShownInSlot": false,
+      "Prefab": {
+        "path": "assets/content/items/barter/item_barter_info_maps/item_barter_info_maps.bundle",
+        "rcid": ""
+      },
+      "QuestItem": true,
+      "QuestStashMaxCount": 1,
+      "RagFairCommissionModifier": 1,
+      "RarityPvE": "Not_exist",
+      "RepairCost": 0,
+      "RepairSpeed": 0,
+      "ShortName": "q_data_map5",
+      "StackMaxSize": 1,
+      "StackObjectsCount": 1,
+      "Unlootable": false,
+      "UnlootableFromSide": [],
+      "UnlootableFromSlot": "FirstPrimaryWeapon",
+      "UsePrefab": {
+        "path": "",
+        "rcid": ""
+      },
+      "Weight": 0.27,
+      "Width": 2
+    },
+    "locales": {
+      "en": {
+        "name": "Lighthouse topographic intel maps",
+        "shortName": "Lighthouse",
+        "description": "Materials that will help you better orient yourself around the area."
+      }
+    },
+    "registerInHandbook": true,
+    "registerInFleaPrices": false,
+    "requiredTemplates": [],
+    "handbookParentId": "5b619f1a86f77450a702a6f3",
+    "handbookPriceRoubles": 72000
+  },
+  "68c721ef980898142c0b3c5a": {
+    "itemTplToClone": "5efde6b4f5448336730dbd61",
+    "newName": "q_card_taah_card_arshavin_broken",
+    "parentId": "5c164d2286f774194c5e69fa",
+    "overrideProperties": {
+      "AnimationVariantsNumber": 0,
+      "BackgroundColor": "yellow",
+      "CanRequireOnRagfair": false,
+      "CanSellOnRagfair": false,
+      "ConflictingItems": [],
+      "Description": "q_card_taah_card_arshavin_broken",
+      "DiscardLimit": 0,
+      "DiscardingBlock": false,
+      "ExamineExperience": 100,
+      "ExamineTime": 1,
+      "ExaminedByDefault": false,
+      "ExtraSizeDown": 0,
+      "ExtraSizeForceAdd": false,
+      "ExtraSizeLeft": 0,
+      "ExtraSizeRight": 0,
+      "ExtraSizeUp": 0,
+      "Height": 1,
+      "HideEntrails": false,
+      "InsuranceDisabled": false,
+      "IsAlwaysAvailableForInsurance": false,
+      "IsLockedafterEquip": false,
+      "IsSecretExitRequirement": false,
+      "IsSpecialSlotOnly": false,
+      "IsUnbuyable": false,
+      "IsUndiscardable": false,
+      "IsUngivable": false,
+      "IsUnremovable": false,
+      "IsUnsaleable": false,
+      "ItemSound": "item_plastic_generic",
+      "LeftHandItem": false,
+      "LootExperience": 150,
+      "MergesWithChildren": false,
+      "Name": "q_card_taah_card_arshavin_broken",
+      "NotShownInSlot": false,
+      "Prefab": {
+        "path": "assets/content/items/spec/item_keycard_arshavin/item_keycard_quest_arshavin.bundle",
+        "rcid": ""
+      },
+      "QuestItem": true,
+      "QuestStashMaxCount": 0,
+      "RagFairCommissionModifier": 1,
+      "RarityPvE": "Not_exist",
+      "RepairCost": 0,
+      "RepairSpeed": 0,
+      "ShortName": "q_card_taah_card_arshavin_broken",
+      "StackMaxSize": 1,
+      "StackObjectsCount": 1,
+      "Unlootable": false,
+      "UnlootableFromSide": [],
+      "UnlootableFromSlot": "FirstPrimaryWeapon",
+      "UsePrefab": {
+        "path": "",
+        "rcid": ""
+      },
+      "Weight": 0.01,
+      "Width": 1,
+      "MaximumNumberOfUsage": 0
+    },
+    "locales": {
+      "en": {
+        "name": "Station 14-4 KORD Arshavin K. pass (Damaged)",
+        "shortName": "14-4 dmg.",
+        "description": "This pass for Station 14-4 KORD is issued to K. Arshavin. It appears to have lain unprotected for a long time and may be damaged."
+      }
+    },
+    "registerInHandbook": true,
+    "registerInFleaPrices": false,
+    "requiredTemplates": [],
+    "handbookParentId": "5c518ed586f774119a772aee",
+    "handbookPriceRoubles": 60000
+  },
+  "6a317b9692cfdcddcb02a58e": {
+    "itemTplToClone": "590c645c86f77412b01304d9",
+    "newName": "Item_barter_info_personal",
+    "parentId": "5448ecbe4bdc2d60728b4568",
+    "overrideProperties": {
+      "AnimationVariantsNumber": 0,
+      "BackgroundColor": "violet",
+      "CanRequireOnRagfair": false,
+      "CanSellOnRagfair": false,
+      "ConflictingItems": [],
+      "Description": "Item_barter_info_personal",
+      "DiscardLimit": 0,
+      "DiscardingBlock": false,
+      "ExamineExperience": 10,
+      "ExamineTime": 1,
+      "ExaminedByDefault": true,
+      "ExtraSizeDown": 0,
+      "ExtraSizeForceAdd": false,
+      "ExtraSizeLeft": 0,
+      "ExtraSizeRight": 0,
+      "ExtraSizeUp": 0,
+      "Height": 2,
+      "HideEntrails": false,
+      "InsuranceDisabled": false,
+      "IsAlwaysAvailableForInsurance": false,
+      "IsLockedafterEquip": false,
+      "IsSecretExitRequirement": false,
+      "IsSpecialSlotOnly": false,
+      "IsUnbuyable": false,
+      "IsUndiscardable": true,
+      "IsUngivable": false,
+      "IsUnremovable": false,
+      "IsUnsaleable": true,
+      "ItemSound": "item_book",
+      "LeftHandItem": false,
+      "LootExperience": 0,
+      "MergesWithChildren": false,
+      "Name": "Item_barter_info_personal",
+      "NotShownInSlot": false,
+      "Prefab": {
+        "path": "assets/content/items/barter/item_barter_info_personal/item_barter_info_personal.bundle",
+        "rcid": ""
+      },
+      "QuestItem": false,
+      "QuestStashMaxCount": 0,
+      "RagFairCommissionModifier": 1,
+      "RarityPvE": "Superrare",
+      "RepairCost": 0,
+      "RepairSpeed": 0,
+      "ShortName": "Item_barter_info_personal",
+      "StackMaxSize": 999,
+      "StackObjectsCount": 1,
+      "Unlootable": false,
+      "UnlootableFromSide": [],
+      "UnlootableFromSlot": "FirstPrimaryWeapon",
+      "UsePrefab": {
+        "path": "",
+        "rcid": ""
+      },
+      "Weight": 0.3,
+      "Width": 1,
+      "StackMaxRandom": 1,
+      "StackMinRandom": 1
+    },
+    "locales": {
+      "en": {
+        "name": "PMC personnel files",
+        "shortName": "PMC",
+        "description": "Rumor has it that TerraGroup keeps a personnel file on nearly every PMC operator. Judging by these documents, the rumors are true.\n\nCan be found on: \n- Reserve\n- Lighthouse\n- Icebreaker"
+      }
+    },
+    "registerInHandbook": true,
+    "registerInFleaPrices": false,
+    "requiredTemplates": [],
+    "handbookParentId": "5b47574386f77428ca22b341",
+    "handbookPriceRoubles": 10000
+  },
+  "6a31830dde69ceafd805afa0": {
+    "itemTplToClone": "590c645c86f77412b01304d9",
+    "newName": "Item_barter_info_operating",
+    "parentId": "5448ecbe4bdc2d60728b4568",
+    "overrideProperties": {
+      "AnimationVariantsNumber": 0,
+      "BackgroundColor": "violet",
+      "CanRequireOnRagfair": false,
+      "CanSellOnRagfair": false,
+      "ConflictingItems": [],
+      "Description": "Item_barter_info_operating",
+      "DiscardLimit": 0,
+      "DiscardingBlock": false,
+      "ExamineExperience": 10,
+      "ExamineTime": 1,
+      "ExaminedByDefault": true,
+      "ExtraSizeDown": 0,
+      "ExtraSizeForceAdd": false,
+      "ExtraSizeLeft": 0,
+      "ExtraSizeRight": 0,
+      "ExtraSizeUp": 0,
+      "Height": 2,
+      "HideEntrails": false,
+      "InsuranceDisabled": false,
+      "IsAlwaysAvailableForInsurance": false,
+      "IsLockedafterEquip": false,
+      "IsSecretExitRequirement": false,
+      "IsSpecialSlotOnly": false,
+      "IsUnbuyable": false,
+      "IsUndiscardable": true,
+      "IsUngivable": false,
+      "IsUnremovable": false,
+      "IsUnsaleable": true,
+      "ItemSound": "item_plastic_generic",
+      "LeftHandItem": false,
+      "LootExperience": 0,
+      "MergesWithChildren": false,
+      "Name": "Item_barter_info_operating",
+      "NotShownInSlot": false,
+      "Prefab": {
+        "path": "assets/content/items/barter/item_barter_info_operating/item_barter_info_operating.bundle",
+        "rcid": ""
+      },
+      "QuestItem": false,
+      "QuestStashMaxCount": 0,
+      "RagFairCommissionModifier": 1,
+      "RarityPvE": "Superrare",
+      "RepairCost": 0,
+      "RepairSpeed": 0,
+      "ShortName": "Item_barter_info_operating",
+      "StackMaxSize": 999,
+      "StackObjectsCount": 1,
+      "Unlootable": false,
+      "UnlootableFromSide": [],
+      "UnlootableFromSlot": "FirstPrimaryWeapon",
+      "UsePrefab": {
+        "path": "",
+        "rcid": ""
+      },
+      "Weight": 0.29,
+      "Width": 1,
+      "StackMaxRandom": 1,
+      "StackMinRandom": 1
+    },
+    "locales": {
+      "en": {
+        "name": "Technical documentation",
+        "shortName": "Technical",
+        "description": "Operating manuals for TerraGroup equipment. Essential for anyone who'd rather not lose a few fingers or break machinery worth millions of dollars. Or for anyone looking to make a tidy profit.\n\nCan be found on: \n- Shoreline\n- Woods\n- Lighthouse"
+      }
+    },
+    "registerInHandbook": true,
+    "registerInFleaPrices": false,
+    "requiredTemplates": [],
+    "handbookParentId": "5b47574386f77428ca22b341",
+    "handbookPriceRoubles": 10000
+  },
+  "6a898d53c891636d94044435": {
+    "itemTplToClone": "5ac620eb86f7743a8e6e0da0",
+    "newName": "t3_quest_package",
+    "parentId": "5448ecbe4bdc2d60728b4568",
+    "overrideProperties": {
+      "AnimationVariantsNumber": 0,
+      "BackgroundColor": "yellow",
+      "CanRequireOnRagfair": false,
+      "CanSellOnRagfair": true,
+      "ConflictingItems": [],
+      "Description": "quest_package",
+      "DiscardLimit": -1,
+      "DiscardingBlock": false,
+      "ExamineExperience": 45,
+      "ExamineTime": 1,
+      "ExaminedByDefault": false,
+      "ExtraSizeDown": 0,
+      "ExtraSizeForceAdd": false,
+      "ExtraSizeLeft": 0,
+      "ExtraSizeRight": 0,
+      "ExtraSizeUp": 0,
+      "Height": 2,
+      "HideEntrails": false,
+      "InsuranceDisabled": false,
+      "IsAlwaysAvailableForInsurance": false,
+      "IsLockedafterEquip": false,
+      "IsSecretExitRequirement": false,
+      "IsSpecialSlotOnly": false,
+      "IsUnbuyable": false,
+      "IsUndiscardable": false,
+      "IsUngivable": false,
+      "IsUnremovable": false,
+      "IsUnsaleable": false,
+      "ItemSound": "gear_goggles",
+      "LeftHandItem": false,
+      "LootExperience": 150,
+      "MergesWithChildren": false,
+      "Name": "quest_package",
+      "NotShownInSlot": false,
+      "Prefab": {
+        "path": "assets/content/items/quest/item_quest_parcel/item_quest_parcel.bundle",
+        "rcid": ""
+      },
+      "QuestItem": true,
+      "QuestStashMaxCount": 0,
+      "RagFairCommissionModifier": 1,
+      "RarityPvE": "Not_exist",
+      "RepairCost": 0,
+      "RepairSpeed": 0,
+      "ShortName": "quest_package",
+      "StackMaxSize": 1,
+      "StackObjectsCount": 1,
+      "Unlootable": false,
+      "UnlootableFromSide": [],
+      "UnlootableFromSlot": "FirstPrimaryWeapon",
+      "UsePrefab": {
+        "path": "",
+        "rcid": ""
+      },
+      "Weight": 1.2,
+      "Width": 1
+    },
+    "locales": {
+      "en": {
+        "name": "Box with supplies for Rogues",
+        "shortName": "Package",
+        "description": "The box isn't particularly heavy, so it probably contains documents or fragile electronics."
+      }
+    },
+    "registerInHandbook": false,
+    "registerInFleaPrices": false,
+    "requiredTemplates": []
+  },
+  "6a8d581fe74010bf70069d83": {
+    "itemTplToClone": "64d4b23dc1b37504b41ac2b6",
+    "newName": "item_key_lighthouse_01_lk_loot_room",
+    "parentId": "5c99f98d86f7745c314214b3",
+    "overrideProperties": {
+      "AnimationVariantsNumber": 0,
+      "BackgroundColor": "red",
+      "CanRequireOnRagfair": false,
+      "CanSellOnRagfair": false,
+      "ConflictingItems": [],
+      "Description": "item_key_lighthouse_01_lk_loot_room",
+      "DiscardLimit": 0,
+      "DiscardingBlock": false,
+      "ExamineExperience": 100,
+      "ExamineTime": 1,
+      "ExaminedByDefault": false,
+      "ExtraSizeDown": 0,
+      "ExtraSizeForceAdd": false,
+      "ExtraSizeLeft": 0,
+      "ExtraSizeRight": 0,
+      "ExtraSizeUp": 0,
+      "Height": 1,
+      "HideEntrails": false,
+      "InsuranceDisabled": false,
+      "IsAlwaysAvailableForInsurance": false,
+      "IsLockedafterEquip": false,
+      "IsSecretExitRequirement": false,
+      "IsSpecialSlotOnly": false,
+      "IsUnbuyable": false,
+      "IsUndiscardable": false,
+      "IsUngivable": false,
+      "IsUnremovable": false,
+      "IsUnsaleable": false,
+      "ItemSound": "keys",
+      "LeftHandItem": false,
+      "LootExperience": 10,
+      "MergesWithChildren": false,
+      "Name": "item_key_lighthouse_01_lk_loot_room",
+      "NotShownInSlot": false,
+      "Prefab": {
+        "path": "assets/content/items/spec/keys/item_key_11.bundle",
+        "rcid": ""
+      },
+      "QuestItem": false,
+      "QuestStashMaxCount": 0,
+      "RagFairCommissionModifier": 1,
+      "RarityPvE": "Superrare",
+      "RepairCost": 0,
+      "RepairSpeed": 0,
+      "ShortName": "item_key_lighthouse_01_lk_loot_room",
+      "StackMaxSize": 1,
+      "StackObjectsCount": 1,
+      "Unlootable": false,
+      "UnlootableFromSide": [],
+      "UnlootableFromSlot": "FirstPrimaryWeapon",
+      "UsePrefab": {
+        "path": "",
+        "rcid": ""
+      },
+      "Weight": 0.01,
+      "Width": 1,
+      "MaximumNumberOfUsage": 1
+    },
+    "locales": {
+      "en": {
+        "name": "Lighthouse island stash key",
+        "shortName": "Lighthouse",
+        "description": "A key to Lightkeeper's stash located in one of the houses on the lighthouse island."
+      }
+    },
+    "registerInHandbook": false,
+    "registerInFleaPrices": false,
+    "requiredTemplates": []
+  },
+  "6a8d758da91ec469b7006699": {
+    "itemTplToClone": "5909d50c86f774659e6aaebe",
+    "newName": "lc_crate_tech_lock",
+    "parentId": "566965d44bdc2d814c8b4571",
+    "overrideProperties": {
+      "Grids": [
+        {
+          "_name": "main",
+          "_id": "6a8d758da91ec469b700669b",
+          "_parent": "6a8d758da91ec469b7006699",
+          "_props": {
+            "filters": [
+              {
+                "ExcludedFilter": [
+                  "5448bf274bdc2dfc2f8b456a"
+                ],
+                "Filter": [
+                  "54009119af1c881c07000029"
+                ]
+              }
+            ],
+            "cellsH": 8,
+            "cellsV": 5,
+            "minCount": 5,
+            "maxCount": 10,
+            "maxWeight": 0,
+            "isSortingTable": false
+          },
+          "_proto": "55d329c24bdc2d892f8b4567"
+        }
+      ],
+      "Slots": [],
+      "AnimationVariantsNumber": 0,
+      "BackgroundColor": "blue",
+      "CanRequireOnRagfair": false,
+      "CanSellOnRagfair": true,
+      "ConflictingItems": [],
+      "Description": "lc_crate_tech_lock",
+      "DiscardLimit": -1,
+      "DiscardingBlock": false,
+      "ExamineExperience": 10,
+      "ExamineTime": 1,
+      "ExaminedByDefault": false,
+      "ExtraSizeDown": 0,
+      "ExtraSizeForceAdd": false,
+      "ExtraSizeLeft": 0,
+      "ExtraSizeRight": 0,
+      "ExtraSizeUp": 0,
+      "Height": 1,
+      "HideEntrails": true,
+      "InsuranceDisabled": false,
+      "IsAlwaysAvailableForInsurance": false,
+      "IsLockedafterEquip": false,
+      "IsSecretExitRequirement": false,
+      "IsSpecialSlotOnly": false,
+      "IsUnbuyable": false,
+      "IsUndiscardable": false,
+      "IsUngivable": false,
+      "IsUnremovable": false,
+      "IsUnsaleable": false,
+      "ItemSound": "generic",
+      "LeftHandItem": false,
+      "LootExperience": 20,
+      "MergesWithChildren": false,
+      "Name": "lc_crate_tech_lock",
+      "NotShownInSlot": false,
+      "Prefab": {
+        "path": "",
+        "rcid": ""
+      },
+      "QuestItem": false,
+      "QuestStashMaxCount": 0,
+      "RagFairCommissionModifier": 1,
+      "RarityPvE": "Not_exist",
+      "RepairCost": 0,
+      "RepairSpeed": 0,
+      "ShortName": "lc_crate_tech_lock",
+      "StackMaxSize": 1,
+      "StackObjectsCount": 1,
+      "Unlootable": false,
+      "UnlootableFromSide": [],
+      "UnlootableFromSlot": "FirstPrimaryWeapon",
+      "UsePrefab": {
+        "path": "",
+        "rcid": ""
+      },
+      "Weight": 1,
+      "Width": 1,
+      "CanPutIntoDuringTheRaid": true,
+      "CantRemoveFromSlotsDuringRaid": [],
+      "ForbidMissingVitalParts": false,
+      "ForbidNonEmptyContainers": false,
+      "BlocksArmorVest": false,
+      "SearchSound": "industrialbox_looting",
+      "SpawnFilter": []
+    },
+    "locales": {
+      "en": {
+        "name": "Opened technical supply crate",
+        "shortName": "Opened technical supply crate",
+        "description": "Opened technical supply crate"
+      }
+    },
+    "registerInHandbook": false,
+    "registerInFleaPrices": false,
+    "requiredTemplates": []
+  },
+  "6a8d772580569cbd9a0332be": {
+    "itemTplToClone": "566966cd4bdc2d0c4c8b4578",
+    "newName": "lc_crate_med_lock",
+    "parentId": "566965d44bdc2d814c8b4571",
+    "overrideProperties": {
+      "Grids": [
+        {
+          "_name": "main",
+          "_id": "6a8d772580569cbd9a0332c0",
+          "_parent": "6a8d772580569cbd9a0332be",
+          "_props": {
+            "filters": [
+              {
+                "ExcludedFilter": [
+                  "5448bf274bdc2dfc2f8b456a"
+                ],
+                "Filter": [
+                  "54009119af1c881c07000029"
+                ]
+              }
+            ],
+            "cellsH": 8,
+            "cellsV": 5,
+            "minCount": 5,
+            "maxCount": 10,
+            "maxWeight": 0,
+            "isSortingTable": false
+          },
+          "_proto": "55d329c24bdc2d892f8b4567"
+        }
+      ],
+      "Slots": [],
+      "AnimationVariantsNumber": 0,
+      "BackgroundColor": "blue",
+      "CanRequireOnRagfair": false,
+      "CanSellOnRagfair": true,
+      "ConflictingItems": [],
+      "Description": "lc_crate_med_lock",
+      "DiscardLimit": -1,
+      "DiscardingBlock": false,
+      "ExamineExperience": 10,
+      "ExamineTime": 1,
+      "ExaminedByDefault": false,
+      "ExtraSizeDown": 0,
+      "ExtraSizeForceAdd": false,
+      "ExtraSizeLeft": 0,
+      "ExtraSizeRight": 0,
+      "ExtraSizeUp": 0,
+      "Height": 1,
+      "HideEntrails": true,
+      "InsuranceDisabled": false,
+      "IsAlwaysAvailableForInsurance": false,
+      "IsLockedafterEquip": false,
+      "IsSecretExitRequirement": false,
+      "IsSpecialSlotOnly": false,
+      "IsUnbuyable": false,
+      "IsUndiscardable": false,
+      "IsUngivable": false,
+      "IsUnremovable": false,
+      "IsUnsaleable": false,
+      "ItemSound": "generic",
+      "LeftHandItem": false,
+      "LootExperience": 20,
+      "MergesWithChildren": false,
+      "Name": "lc_crate_med_lock",
+      "NotShownInSlot": false,
+      "Prefab": {
+        "path": "",
+        "rcid": ""
+      },
+      "QuestItem": false,
+      "QuestStashMaxCount": 0,
+      "RagFairCommissionModifier": 1,
+      "RarityPvE": "Not_exist",
+      "RepairCost": 0,
+      "RepairSpeed": 0,
+      "ShortName": "lc_crate_med_lock",
+      "StackMaxSize": 1,
+      "StackObjectsCount": 1,
+      "Unlootable": false,
+      "UnlootableFromSide": [],
+      "UnlootableFromSlot": "FirstPrimaryWeapon",
+      "UsePrefab": {
+        "path": "",
+        "rcid": ""
+      },
+      "Weight": 1,
+      "Width": 1,
+      "CanPutIntoDuringTheRaid": true,
+      "CantRemoveFromSlotsDuringRaid": [],
+      "ForbidMissingVitalParts": false,
+      "ForbidNonEmptyContainers": false,
+      "BlocksArmorVest": false,
+      "SearchSound": "woodbox_looting",
+      "SpawnFilter": []
+    },
+    "locales": {
+      "en": {
+        "name": "Unlocked medical supply crate",
+        "shortName": "Unlocked medical supply crate",
+        "description": "Unlocked medical supply crate"
+      }
+    },
+    "registerInHandbook": false,
+    "registerInFleaPrices": false,
+    "requiredTemplates": []
+  },
+  "6a8d775c1bfd020505051676": {
+    "itemTplToClone": "566966cd4bdc2d0c4c8b4578",
+    "newName": "lc_crate_food_lock",
+    "parentId": "566965d44bdc2d814c8b4571",
+    "overrideProperties": {
+      "Grids": [
+        {
+          "_name": "main",
+          "_id": "6a8d775c1bfd020505051678",
+          "_parent": "6a8d775c1bfd020505051676",
+          "_props": {
+            "filters": [
+              {
+                "ExcludedFilter": [
+                  "5448bf274bdc2dfc2f8b456a"
+                ],
+                "Filter": [
+                  "54009119af1c881c07000029"
+                ]
+              }
+            ],
+            "cellsH": 8,
+            "cellsV": 5,
+            "minCount": 5,
+            "maxCount": 10,
+            "maxWeight": 0,
+            "isSortingTable": false
+          },
+          "_proto": "55d329c24bdc2d892f8b4567"
+        }
+      ],
+      "Slots": [],
+      "AnimationVariantsNumber": 0,
+      "BackgroundColor": "blue",
+      "CanRequireOnRagfair": false,
+      "CanSellOnRagfair": true,
+      "ConflictingItems": [],
+      "Description": "lc_crate_food_lock",
+      "DiscardLimit": -1,
+      "DiscardingBlock": false,
+      "ExamineExperience": 10,
+      "ExamineTime": 1,
+      "ExaminedByDefault": false,
+      "ExtraSizeDown": 0,
+      "ExtraSizeForceAdd": false,
+      "ExtraSizeLeft": 0,
+      "ExtraSizeRight": 0,
+      "ExtraSizeUp": 0,
+      "Height": 1,
+      "HideEntrails": true,
+      "InsuranceDisabled": false,
+      "IsAlwaysAvailableForInsurance": false,
+      "IsLockedafterEquip": false,
+      "IsSecretExitRequirement": false,
+      "IsSpecialSlotOnly": false,
+      "IsUnbuyable": false,
+      "IsUndiscardable": false,
+      "IsUngivable": false,
+      "IsUnremovable": false,
+      "IsUnsaleable": false,
+      "ItemSound": "generic",
+      "LeftHandItem": false,
+      "LootExperience": 20,
+      "MergesWithChildren": false,
+      "Name": "lc_crate_food_lock",
+      "NotShownInSlot": false,
+      "Prefab": {
+        "path": "",
+        "rcid": ""
+      },
+      "QuestItem": false,
+      "QuestStashMaxCount": 0,
+      "RagFairCommissionModifier": 1,
+      "RarityPvE": "Not_exist",
+      "RepairCost": 0,
+      "RepairSpeed": 0,
+      "ShortName": "lc_crate_food_lock",
+      "StackMaxSize": 1,
+      "StackObjectsCount": 1,
+      "Unlootable": false,
+      "UnlootableFromSide": [],
+      "UnlootableFromSlot": "FirstPrimaryWeapon",
+      "UsePrefab": {
+        "path": "",
+        "rcid": ""
+      },
+      "Weight": 1,
+      "Width": 1,
+      "CanPutIntoDuringTheRaid": true,
+      "CantRemoveFromSlotsDuringRaid": [],
+      "ForbidMissingVitalParts": false,
+      "ForbidNonEmptyContainers": false,
+      "BlocksArmorVest": false,
+      "SearchSound": "woodbox_looting",
+      "SpawnFilter": []
+    },
+    "locales": {
+      "en": {
+        "name": "Unlocked ration supply crate",
+        "shortName": "Unlocked ration supply crate",
+        "description": "Unlocked ration supply crate"
+      }
+    },
+    "registerInHandbook": false,
+    "registerInFleaPrices": false,
+    "requiredTemplates": []
+  },
+  "6a8d777cac12ffbbc2013fe3": {
+    "itemTplToClone": "566966cd4bdc2d0c4c8b4578",
+    "newName": "lc_crate_weapon_wood_lock",
+    "parentId": "566965d44bdc2d814c8b4571",
+    "overrideProperties": {
+      "Grids": [
+        {
+          "_name": "main",
+          "_id": "6a8d777cac12ffbbc2013fe5",
+          "_parent": "6a8d777cac12ffbbc2013fe3",
+          "_props": {
+            "filters": [
+              {
+                "ExcludedFilter": [
+                  "5448bf274bdc2dfc2f8b456a"
+                ],
+                "Filter": [
+                  "54009119af1c881c07000029"
+                ]
+              }
+            ],
+            "cellsH": 5,
+            "cellsV": 3,
+            "minCount": 2,
+            "maxCount": 4,
+            "maxWeight": 0,
+            "isSortingTable": false
+          },
+          "_proto": "55d329c24bdc2d892f8b4567"
+        }
+      ],
+      "Slots": [],
+      "AnimationVariantsNumber": 0,
+      "BackgroundColor": "blue",
+      "CanRequireOnRagfair": false,
+      "CanSellOnRagfair": true,
+      "ConflictingItems": [],
+      "Description": "lc_crate_weapon_wood_lock",
+      "DiscardLimit": -1,
+      "DiscardingBlock": false,
+      "ExamineExperience": 10,
+      "ExamineTime": 1,
+      "ExaminedByDefault": false,
+      "ExtraSizeDown": 0,
+      "ExtraSizeForceAdd": false,
+      "ExtraSizeLeft": 0,
+      "ExtraSizeRight": 0,
+      "ExtraSizeUp": 0,
+      "Height": 1,
+      "HideEntrails": true,
+      "InsuranceDisabled": false,
+      "IsAlwaysAvailableForInsurance": false,
+      "IsLockedafterEquip": false,
+      "IsSecretExitRequirement": false,
+      "IsSpecialSlotOnly": false,
+      "IsUnbuyable": false,
+      "IsUndiscardable": false,
+      "IsUngivable": false,
+      "IsUnremovable": false,
+      "IsUnsaleable": false,
+      "ItemSound": "generic",
+      "LeftHandItem": false,
+      "LootExperience": 20,
+      "MergesWithChildren": false,
+      "Name": "lc_crate_weapon_wood_lock",
+      "NotShownInSlot": false,
+      "Prefab": {
+        "path": "",
+        "rcid": ""
+      },
+      "QuestItem": false,
+      "QuestStashMaxCount": 0,
+      "RagFairCommissionModifier": 1,
+      "RarityPvE": "Not_exist",
+      "RepairCost": 0,
+      "RepairSpeed": 0,
+      "ShortName": "lc_crate_weapon_wood_lock",
+      "StackMaxSize": 1,
+      "StackObjectsCount": 1,
+      "Unlootable": false,
+      "UnlootableFromSide": [],
+      "UnlootableFromSlot": "FirstPrimaryWeapon",
+      "UsePrefab": {
+        "path": "",
+        "rcid": ""
+      },
+      "Weight": 1,
+      "Width": 1,
+      "CanPutIntoDuringTheRaid": true,
+      "CantRemoveFromSlotsDuringRaid": [],
+      "ForbidMissingVitalParts": false,
+      "ForbidNonEmptyContainers": false,
+      "BlocksArmorVest": false,
+      "SearchSound": "woodbox_looting",
+      "SpawnFilter": []
+    },
+    "locales": {
+      "en": {
+        "name": "Unlocked wooden crate",
+        "shortName": "Unlocked wooden crate",
+        "description": "Unlocked wooden crate"
+      }
+    },
+    "registerInHandbook": false,
+    "registerInFleaPrices": false,
+    "requiredTemplates": []
+  },
+  "6a8d8368ac12ffbbc201438d": {
+    "itemTplToClone": "5909e4b686f7747f5b744fa4",
+    "newName": "lc_corpse_pmc_usec",
+    "parentId": "566965d44bdc2d814c8b4571",
+    "overrideProperties": {
+      "Grids": [
+        {
+          "_name": "main",
+          "_id": "6a8d8368ac12ffbbc201438f",
+          "_parent": "6a8d8368ac12ffbbc201438d",
+          "_props": {
+            "filters": [
+              {
+                "ExcludedFilter": [
+                  "5448bf274bdc2dfc2f8b456a"
+                ],
+                "Filter": [
+                  "54009119af1c881c07000029"
+                ]
+              }
+            ],
+            "cellsH": 5,
+            "cellsV": 5,
+            "minCount": 2,
+            "maxCount": 8,
+            "maxWeight": 0,
+            "isSortingTable": false
+          },
+          "_proto": "55d329c24bdc2d892f8b4567"
+        }
+      ],
+      "Slots": [],
+      "AnimationVariantsNumber": 0,
+      "BackgroundColor": "blue",
+      "CanRequireOnRagfair": false,
+      "CanSellOnRagfair": true,
+      "ConflictingItems": [],
+      "Description": "lc_corpse_pmc_usec",
+      "DiscardLimit": -1,
+      "DiscardingBlock": false,
+      "ExamineExperience": 10,
+      "ExamineTime": 1,
+      "ExaminedByDefault": false,
+      "ExtraSizeDown": 0,
+      "ExtraSizeForceAdd": false,
+      "ExtraSizeLeft": 0,
+      "ExtraSizeRight": 0,
+      "ExtraSizeUp": 0,
+      "Height": 1,
+      "HideEntrails": true,
+      "InsuranceDisabled": false,
+      "IsAlwaysAvailableForInsurance": false,
+      "IsLockedafterEquip": false,
+      "IsSecretExitRequirement": false,
+      "IsSpecialSlotOnly": false,
+      "IsUnbuyable": false,
+      "IsUndiscardable": false,
+      "IsUngivable": false,
+      "IsUnremovable": false,
+      "IsUnsaleable": false,
+      "ItemSound": "generic",
+      "LeftHandItem": false,
+      "LootExperience": 20,
+      "MergesWithChildren": false,
+      "Name": "lc_corpse_pmc_usec",
+      "NotShownInSlot": false,
+      "Prefab": {
+        "path": "",
+        "rcid": ""
+      },
+      "QuestItem": false,
+      "QuestStashMaxCount": 0,
+      "RagFairCommissionModifier": 1,
+      "RarityPvE": "Not_exist",
+      "RepairCost": 0,
+      "RepairSpeed": 0,
+      "ShortName": "lc_corpse_pmc_usec",
+      "StackMaxSize": 1,
+      "StackObjectsCount": 1,
+      "Unlootable": false,
+      "UnlootableFromSide": [],
+      "UnlootableFromSlot": "FirstPrimaryWeapon",
+      "UsePrefab": {
+        "path": "",
+        "rcid": ""
+      },
+      "Weight": 1,
+      "Width": 1,
+      "CanPutIntoDuringTheRaid": true,
+      "CantRemoveFromSlotsDuringRaid": [],
+      "ForbidMissingVitalParts": false,
+      "ForbidNonEmptyContainers": false,
+      "BlocksArmorVest": false,
+      "SearchSound": "looting_body_extended",
+      "SpawnFilter": []
+    },
+    "locales": {
+      "en": {
+        "name": "USEC body",
+        "shortName": "USEC body",
+        "description": "USEC body"
+      }
+    },
+    "registerInHandbook": false,
+    "registerInFleaPrices": false,
+    "requiredTemplates": []
+  },
+  "6a99617d17c4dda0010df334": {
+    "itemTplToClone": "57372ac324597767001bc261",
+    "newName": "item_ammo_box_58x42_30_dbp191",
+    "parentId": "543be5cb4bdc2deb348b4568",
+    "overrideProperties": {
+      "StackSlots": [
+        {
+          "_name": "cartridges",
+          "_id": "6a99617d17c4dda0010df335",
+          "_parent": "6a99617d17c4dda0010df334",
+          "_max_count": 30,
+          "_props": {
+            "filters": [
+              {
+                "Filter": [
+                  "6a07208057b2695f9d001e63"
+                ]
+              }
+            ]
+          },
+          "_proto": "5748538b2459770af276a261"
+        }
+      ],
+      "AnimationVariantsNumber": 0,
+      "BackgroundColor": "yellow",
+      "CanRequireOnRagfair": false,
+      "CanSellOnRagfair": true,
+      "ConflictingItems": [],
+      "Description": "item_ammo_box_58x42_30_dbp191",
+      "DiscardLimit": -1,
+      "DiscardingBlock": false,
+      "ExamineExperience": 10,
+      "ExamineTime": 1,
+      "ExaminedByDefault": true,
+      "ExtraSizeDown": 0,
+      "ExtraSizeForceAdd": false,
+      "ExtraSizeLeft": 0,
+      "ExtraSizeRight": 0,
+      "ExtraSizeUp": 0,
+      "Height": 1,
+      "HideEntrails": true,
+      "InsuranceDisabled": true,
+      "IsAlwaysAvailableForInsurance": false,
+      "IsLockedafterEquip": false,
+      "IsSecretExitRequirement": false,
+      "IsSpecialSlotOnly": false,
+      "IsUnbuyable": false,
+      "IsUndiscardable": false,
+      "IsUngivable": false,
+      "IsUnremovable": false,
+      "IsUnsaleable": false,
+      "ItemSound": "ammo_pack_generic",
+      "LeftHandItem": false,
+      "LootExperience": 0,
+      "MergesWithChildren": false,
+      "Name": "item_ammo_box_58x42_30_dbp191",
+      "NotShownInSlot": false,
+      "Prefab": {
+        "path": "assets/content/items/ammo/boxes/item_ammo_box_58x42_dbp_191.bundle",
+        "rcid": ""
+      },
+      "QuestItem": false,
+      "QuestStashMaxCount": 0,
+      "RagFairCommissionModifier": 1,
+      "RarityPvE": "Rare",
+      "RepairCost": 0,
+      "RepairSpeed": 0,
+      "ShortName": "item_ammo_box_58x42_30_dbp191",
+      "StackMaxSize": 1,
+      "StackObjectsCount": 1,
+      "Unlootable": false,
+      "UnlootableFromSide": [],
+      "UnlootableFromSlot": "FirstPrimaryWeapon",
+      "UsePrefab": {
+        "path": "",
+        "rcid": ""
+      },
+      "Weight": 0.01,
+      "Width": 1,
+      "StackMaxRandom": 30,
+      "StackMinRandom": 30,
+      "ammoCaliber": "Caliber58x42"
+    },
+    "locales": {
+      "en": {
+        "name": "5.8x42mm DBP191 ammo pack (30 pcs)",
+        "shortName": "DBP191",
+        "description": "A pack of 5.8x42 mm DBP191 ammo, 30 rounds."
+      }
+    },
+    "registerInHandbook": true,
+    "registerInFleaPrices": false,
+    "requiredTemplates": [
+      "6a07208057b2695f9d001e63"
+    ],
+    "handbookParentId": "5b47574386f77428ca22b33c",
+    "handbookPriceRoubles": 1000
+  },
+  "6a9961d053d704c9d005660e": {
+    "itemTplToClone": "57372ac324597767001bc261",
+    "newName": "item_ammo_box_58x42_30_dbx95",
+    "parentId": "543be5cb4bdc2deb348b4568",
+    "overrideProperties": {
+      "StackSlots": [
+        {
+          "_name": "cartridges",
+          "_id": "6a9961d053d704c9d005660f",
+          "_parent": "6a9961d053d704c9d005660e",
+          "_max_count": 30,
+          "_props": {
+            "filters": [
+              {
+                "Filter": [
+                  "6a42661705016139300b2085"
+                ]
+              }
+            ]
+          },
+          "_proto": "5748538b2459770af276a261"
+        }
+      ],
+      "AnimationVariantsNumber": 0,
+      "BackgroundColor": "yellow",
+      "CanRequireOnRagfair": false,
+      "CanSellOnRagfair": true,
+      "ConflictingItems": [],
+      "Description": "item_ammo_box_58x42_30_dbx95",
+      "DiscardLimit": -1,
+      "DiscardingBlock": false,
+      "ExamineExperience": 10,
+      "ExamineTime": 1,
+      "ExaminedByDefault": true,
+      "ExtraSizeDown": 0,
+      "ExtraSizeForceAdd": false,
+      "ExtraSizeLeft": 0,
+      "ExtraSizeRight": 0,
+      "ExtraSizeUp": 0,
+      "Height": 1,
+      "HideEntrails": true,
+      "InsuranceDisabled": true,
+      "IsAlwaysAvailableForInsurance": false,
+      "IsLockedafterEquip": false,
+      "IsSecretExitRequirement": false,
+      "IsSpecialSlotOnly": false,
+      "IsUnbuyable": false,
+      "IsUndiscardable": false,
+      "IsUngivable": false,
+      "IsUnremovable": false,
+      "IsUnsaleable": false,
+      "ItemSound": "ammo_pack_generic",
+      "LeftHandItem": false,
+      "LootExperience": 0,
+      "MergesWithChildren": false,
+      "Name": "item_ammo_box_58x42_30_dbx95",
+      "NotShownInSlot": false,
+      "Prefab": {
+        "path": "assets/content/items/ammo/boxes/item_ammo_box_58x42_dbp_191.bundle",
+        "rcid": ""
+      },
+      "QuestItem": false,
+      "QuestStashMaxCount": 0,
+      "RagFairCommissionModifier": 1,
+      "RarityPvE": "Rare",
+      "RepairCost": 0,
+      "RepairSpeed": 0,
+      "ShortName": "item_ammo_box_58x42_30_dbx95",
+      "StackMaxSize": 1,
+      "StackObjectsCount": 1,
+      "Unlootable": false,
+      "UnlootableFromSide": [],
+      "UnlootableFromSlot": "FirstPrimaryWeapon",
+      "UsePrefab": {
+        "path": "",
+        "rcid": ""
+      },
+      "Weight": 0.01,
+      "Width": 1,
+      "StackMaxRandom": 30,
+      "StackMinRandom": 30,
+      "ammoCaliber": "Caliber58x42"
+    },
+    "locales": {
+      "en": {
+        "name": "5.8x42mm DBX95 ammo pack (30 pcs)",
+        "shortName": "DBX95",
+        "description": "A pack of 5.8x42 mm DBX95 ammo, 30 rounds."
+      }
+    },
+    "registerInHandbook": true,
+    "registerInFleaPrices": false,
+    "requiredTemplates": [
+      "6a42661705016139300b2085"
+    ],
+    "handbookParentId": "5b47574386f77428ca22b33c",
+    "handbookPriceRoubles": 1000
+  },
+  "6a9961ddbdde1672b805514a": {
+    "itemTplToClone": "64898602f09d032aa9399d56",
+    "newName": "item_ammo_box_58x42_30_dvc12",
+    "parentId": "543be5cb4bdc2deb348b4568",
+    "overrideProperties": {
+      "StackSlots": [
+        {
+          "_name": "cartridges",
+          "_id": "6a9961ddbdde1672b805514b",
+          "_parent": "6a9961ddbdde1672b805514a",
+          "_max_count": 30,
+          "_props": {
+            "filters": [
+              {
+                "Filter": [
+                  "6a42662fcb506840dd053827"
+                ]
+              }
+            ]
+          },
+          "_proto": "5748538b2459770af276a261"
+        }
+      ],
+      "AnimationVariantsNumber": 0,
+      "BackgroundColor": "yellow",
+      "CanRequireOnRagfair": false,
+      "CanSellOnRagfair": false,
+      "ConflictingItems": [],
+      "Description": "item_ammo_box_58x42_30_dvc12",
+      "DiscardLimit": -1,
+      "DiscardingBlock": false,
+      "ExamineExperience": 10,
+      "ExamineTime": 1,
+      "ExaminedByDefault": true,
+      "ExtraSizeDown": 0,
+      "ExtraSizeForceAdd": false,
+      "ExtraSizeLeft": 0,
+      "ExtraSizeRight": 0,
+      "ExtraSizeUp": 0,
+      "Height": 1,
+      "HideEntrails": true,
+      "InsuranceDisabled": true,
+      "IsAlwaysAvailableForInsurance": false,
+      "IsLockedafterEquip": false,
+      "IsSecretExitRequirement": false,
+      "IsSpecialSlotOnly": false,
+      "IsUnbuyable": false,
+      "IsUndiscardable": false,
+      "IsUngivable": false,
+      "IsUnremovable": false,
+      "IsUnsaleable": false,
+      "ItemSound": "ammo_pack_generic",
+      "LeftHandItem": false,
+      "LootExperience": 0,
+      "MergesWithChildren": false,
+      "Name": "item_ammo_box_58x42_30_dvc12",
+      "NotShownInSlot": false,
+      "Prefab": {
+        "path": "assets/content/items/ammo/boxes/item_ammo_box_58x42_dbp_191.bundle",
+        "rcid": ""
+      },
+      "QuestItem": false,
+      "QuestStashMaxCount": 0,
+      "RagFairCommissionModifier": 1,
+      "RarityPvE": "Superrare",
+      "RepairCost": 0,
+      "RepairSpeed": 0,
+      "ShortName": "item_ammo_box_58x42_30_dvc12",
+      "StackMaxSize": 1,
+      "StackObjectsCount": 1,
+      "Unlootable": false,
+      "UnlootableFromSide": [],
+      "UnlootableFromSlot": "FirstPrimaryWeapon",
+      "UsePrefab": {
+        "path": "",
+        "rcid": ""
+      },
+      "Weight": 0.01,
+      "Width": 1,
+      "StackMaxRandom": 30,
+      "StackMinRandom": 30,
+      "ammoCaliber": "Caliber58x42"
+    },
+    "locales": {
+      "en": {
+        "name": "5.8x42mm DVC12 ammo pack (30 pcs)",
+        "shortName": "DVC12",
+        "description": "A pack of 5.8x42 mm DVC12 ammo, 30 rounds."
+      }
+    },
+    "registerInHandbook": true,
+    "registerInFleaPrices": false,
+    "requiredTemplates": [
+      "6a42662fcb506840dd053827"
+    ],
+    "handbookParentId": "5b47574386f77428ca22b33c",
+    "handbookPriceRoubles": 1000
+  },
+  "6a9961ed793941a095047a7f": {
+    "itemTplToClone": "64898602f09d032aa9399d56",
+    "newName": "item_ammo_box_58x42_30_dvx12",
+    "parentId": "543be5cb4bdc2deb348b4568",
+    "overrideProperties": {
+      "StackSlots": [
+        {
+          "_name": "cartridges",
+          "_id": "6a9961ed793941a095047a80",
+          "_parent": "6a9961ed793941a095047a7f",
+          "_max_count": 30,
+          "_props": {
+            "filters": [
+              {
+                "Filter": [
+                  "6a426637ddc63098d100ae67"
+                ]
+              }
+            ]
+          },
+          "_proto": "5748538b2459770af276a261"
+        }
+      ],
+      "AnimationVariantsNumber": 0,
+      "BackgroundColor": "yellow",
+      "CanRequireOnRagfair": false,
+      "CanSellOnRagfair": false,
+      "ConflictingItems": [],
+      "Description": "item_ammo_box_58x42_30_dvx12",
+      "DiscardLimit": -1,
+      "DiscardingBlock": false,
+      "ExamineExperience": 10,
+      "ExamineTime": 1,
+      "ExaminedByDefault": true,
+      "ExtraSizeDown": 0,
+      "ExtraSizeForceAdd": false,
+      "ExtraSizeLeft": 0,
+      "ExtraSizeRight": 0,
+      "ExtraSizeUp": 0,
+      "Height": 1,
+      "HideEntrails": true,
+      "InsuranceDisabled": true,
+      "IsAlwaysAvailableForInsurance": false,
+      "IsLockedafterEquip": false,
+      "IsSecretExitRequirement": false,
+      "IsSpecialSlotOnly": false,
+      "IsUnbuyable": false,
+      "IsUndiscardable": false,
+      "IsUngivable": false,
+      "IsUnremovable": false,
+      "IsUnsaleable": false,
+      "ItemSound": "ammo_pack_generic",
+      "LeftHandItem": false,
+      "LootExperience": 0,
+      "MergesWithChildren": false,
+      "Name": "item_ammo_box_58x42_30_dvx12",
+      "NotShownInSlot": false,
+      "Prefab": {
+        "path": "assets/content/items/ammo/boxes/item_ammo_box_58x42_dbp_191.bundle",
+        "rcid": ""
+      },
+      "QuestItem": false,
+      "QuestStashMaxCount": 0,
+      "RagFairCommissionModifier": 1,
+      "RarityPvE": "Superrare",
+      "RepairCost": 0,
+      "RepairSpeed": 0,
+      "ShortName": "item_ammo_box_58x42_30_dvx12",
+      "StackMaxSize": 1,
+      "StackObjectsCount": 1,
+      "Unlootable": false,
+      "UnlootableFromSide": [],
+      "UnlootableFromSlot": "FirstPrimaryWeapon",
+      "UsePrefab": {
+        "path": "",
+        "rcid": ""
+      },
+      "Weight": 0.01,
+      "Width": 1,
+      "StackMaxRandom": 30,
+      "StackMinRandom": 30,
+      "ammoCaliber": "Caliber58x42"
+    },
+    "locales": {
+      "en": {
+        "name": "5.8x42mm DVX12 ammo pack (30 pcs)",
+        "shortName": "DVX12",
+        "description": "A pack of 5.8x42 mm DVX12 ammo, 30 rounds."
+      }
+    },
+    "registerInHandbook": true,
+    "registerInFleaPrices": false,
+    "requiredTemplates": [
+      "6a426637ddc63098d100ae67"
+    ],
+    "handbookParentId": "5b47574386f77428ca22b33c",
+    "handbookPriceRoubles": 1000
+  },
+  "6a9980872a87c16fef04789f": {
+    "itemTplToClone": "5d1b385e86f774252167b98a",
+    "newName": "item_barter_other_waterfilter_pentaqua",
+    "parentId": "590c745b86f7743cc433c5f2",
+    "overrideProperties": {
+      "AnimationVariantsNumber": 0,
+      "BackgroundColor": "violet",
+      "CanRequireOnRagfair": false,
+      "CanSellOnRagfair": true,
+      "ConflictingItems": [],
+      "Description": "item_barter_other_waterfilter_pentaqua",
+      "DiscardLimit": 1,
+      "DiscardingBlock": false,
+      "ExamineExperience": 10,
+      "ExamineTime": 1,
+      "ExaminedByDefault": true,
+      "ExtraSizeDown": 0,
+      "ExtraSizeForceAdd": false,
+      "ExtraSizeLeft": 0,
+      "ExtraSizeRight": 0,
+      "ExtraSizeUp": 0,
+      "Height": 2,
+      "HideEntrails": false,
+      "InsuranceDisabled": false,
+      "IsAlwaysAvailableForInsurance": false,
+      "IsLockedafterEquip": false,
+      "IsSecretExitRequirement": false,
+      "IsSpecialSlotOnly": false,
+      "IsUnbuyable": false,
+      "IsUndiscardable": false,
+      "IsUngivable": false,
+      "IsUnremovable": false,
+      "IsUnsaleable": false,
+      "ItemSound": "item_plastic_generic",
+      "LeftHandItem": false,
+      "LootExperience": 20,
+      "MergesWithChildren": false,
+      "Name": "item_barter_other_waterfilter_pentaqua",
+      "NotShownInSlot": false,
+      "Prefab": {
+        "path": "assets/content/items/barter/item_barter_other_waterfilter_pentaqua/item_barter_other_waterfilter_pentaqua.bundle",
+        "rcid": ""
+      },
+      "QuestItem": false,
+      "QuestStashMaxCount": 0,
+      "RagFairCommissionModifier": 1,
+      "RarityPvE": "Superrare",
+      "RepairCost": 0,
+      "RepairSpeed": 0,
+      "ShortName": "item_barter_other_waterfilter_pentaqua",
+      "StackMaxSize": 1,
+      "StackObjectsCount": 1,
+      "Unlootable": false,
+      "UnlootableFromSide": [],
+      "UnlootableFromSlot": "FirstPrimaryWeapon",
+      "UsePrefab": {
+        "path": "",
+        "rcid": ""
+      },
+      "Weight": 4.5,
+      "Width": 2,
+      "MaxResource": 400,
+      "Resource": 400,
+      "DogTagQualities": false
+    },
+    "locales": {
+      "en": {
+        "name": "Everclear two-stage water filter",
+        "shortName": "Everclear",
+        "description": "A professional-grade water filter from Pentaqua. It features two filtration stages, providing not only more thorough water purification but also a service life far beyond what household filters can offer."
+      }
+    },
+    "registerInHandbook": true,
+    "registerInFleaPrices": false,
+    "requiredTemplates": [],
+    "handbookParentId": "5b47574386f77428ca22b2f4",
+    "handbookPriceRoubles": 123500
+  }
+}
