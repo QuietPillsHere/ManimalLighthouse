@@ -25,7 +25,7 @@ internal static class LighthouseRainDepthCapture
         {
             RenderTexture.active = previous;
             if (target) RenderTexture.ReleaseTemporary(target);
-            if (copy) UnityEngine.Object.Destroy(copy);
+            if (copy) Object.Destroy(copy);
         }
     }
 }
