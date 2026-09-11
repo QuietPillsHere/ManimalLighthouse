@@ -131,8 +131,8 @@ public static class ManifestRules
 
     public static void ValidateRelativePath(string relative)
     {
-        if (string.IsNullOrWhiteSpace(relative) || Path.IsPathRooted(relative) || relative.Contains(":") ||
-            relative.Contains("\\"))
+        if (string.IsNullOrWhiteSpace(relative) || Path.IsPathRooted(relative) || relative.Contains(":") 
+            || relative.Contains("\\"))
         {
             throw new InvalidDataException("Payload path must be relative with forward slashes.");
         }
