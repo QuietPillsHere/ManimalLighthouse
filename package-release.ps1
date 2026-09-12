@@ -1,16 +1,36 @@
-#requires -Version 7.2
 # Build fresh plugins and package only manifest-declared runtime payloads.
 # Authored Unity bundles are supplied by a staged install or -AssetSourcePath.
 [CmdletBinding()]
 param(
     [string]$SPTPath,
     [string]$AssetSourcePath,
-    [string]$OutputDirectory = (Join-Path $PSScriptRoot 'dist'),
+    [string]$OutputDirectory,
     [switch]$ValidateOnly,
     [switch]$StageOnly
 )
+
+# Windows associates .ps1 files with Windows PowerShell on many systems. This
+# project builds against modern .NET, so transparently move the same command to
+# PowerShell 7 instead of failing at the old #requires directive before useful
+# output can be shown.
+if ($PSVersionTable.PSVersion -lt [version]'7.2') {
+    $pwsh = Get-Command pwsh.exe -ErrorAction SilentlyContinue
+    if (-not $pwsh) {
+        throw 'PowerShell 7.2 or newer is required. Install PowerShell 7, then run package-release.ps1 again.'
+    }
+    $arguments = @('-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', $PSCommandPath)
+    if ($PSBoundParameters.ContainsKey('SPTPath')) { $arguments += @('-SPTPath', $SPTPath) }
+    if ($PSBoundParameters.ContainsKey('AssetSourcePath')) { $arguments += @('-AssetSourcePath', $AssetSourcePath) }
+    if ($PSBoundParameters.ContainsKey('OutputDirectory')) { $arguments += @('-OutputDirectory', $OutputDirectory) }
+    if ($ValidateOnly) { $arguments += '-ValidateOnly' }
+    if ($StageOnly) { $arguments += '-StageOnly' }
+    & $pwsh.Source @arguments
+    exit $LASTEXITCODE
+}
+
 $ErrorActionPreference = 'Stop'
 $root = $PSScriptRoot
+if ([string]::IsNullOrWhiteSpace($OutputDirectory)) { $OutputDirectory = Join-Path $root 'dist' }
 [xml]$props = Get-Content -LiteralPath (Join-Path $root 'Directory.Build.props')
 $version = [string]$props.Project.PropertyGroup.ModVersion
 $sourceUrl = [string]$props.Project.PropertyGroup.ModSourceUrl
@@ -57,8 +77,9 @@ foreach ($entry in @($manifest.Bundles) + @($manifest.Sidecars)) {
 }
 # Repo-owned database files replace the old direct-registration payload.
 $serverFiles = [Collections.Generic.List[object]]::new()
-foreach ($file in Get-ChildItem -LiteralPath (Join-Path $root 'lighthouse-server/db') -Recurse -File -Filter '*.json') {
-    $relative = 'db/' + [IO.Path]::GetRelativePath((Join-Path $root 'lighthouse-server/db'), $file.FullName).Replace('\','/')
+$serverDbRoot = [IO.Path]::GetFullPath((Join-Path $root 'lighthouse-server/db')).TrimEnd('\') + '\'
+foreach ($file in Get-ChildItem -LiteralPath $serverDbRoot -Recurse -File -Filter '*.json') {
+    $relative = 'db/' + $file.FullName.Substring($serverDbRoot.Length).Replace('\','/')
     Add-Input $file.FullName "$serverRelative/$relative"
     $serverFiles.Add([pscustomobject]@{Path=$relative;Sha256=$inputs[$inputs.Count-1].sha256})
 }
@@ -85,54 +106,58 @@ $manifest.ServerFiles = @($serverFiles.ToArray())
 if (-not $manifest.ContentId.EndsWith('-commonlib1')) { $manifest.ContentId += '-commonlib1' }
 $OutputDirectory = [IO.Path]::GetFullPath($OutputDirectory)
 New-Item -ItemType Directory -Path $OutputDirectory -Force | Out-Null
-$stage = Join-Path $root ('build/package-stage-' + [Guid]::NewGuid().ToString('N'))
-New-Item -ItemType Directory -Path $stage | Out-Null
-Write-Host 'Staging runtime payload...'
-foreach ($entry in $inputs) {
-    $destination = Resolve-Payload $stage $entry.path
-    New-Item -ItemType Directory -Path (Split-Path $destination -Parent) -Force | Out-Null
-    Copy-Item -LiteralPath $entry.source -Destination $destination
-}
 $manifestJson = $manifest | ConvertTo-Json -Depth 30
-foreach ($side in @($clientRelative,$serverRelative)) {
-    [IO.File]::WriteAllText((Join-Path $stage "$side/lighthouse-content.json"), $manifestJson)
+$packageFiles = [Collections.Generic.List[object]]::new()
+foreach ($entry in $inputs) { $packageFiles.Add($entry) }
+function Add-Generated([string]$Destination, [string]$Content) {
+    if (-not $seen.Add($Destination)) { throw "Duplicate package path: $Destination" }
+    $bytes = [Text.Encoding]::UTF8.GetBytes($Content)
+    $hasher = [Security.Cryptography.SHA256]::Create()
+    try { $sha = $hasher.ComputeHash($bytes) }
+    finally { $hasher.Dispose() }
+    $shaText = ([BitConverter]::ToString($sha)).Replace('-', '').ToLowerInvariant()
+    $packageFiles.Add([pscustomobject]@{source=$null;content=$bytes;path=$Destination;sha256=$shaText;bytes=$bytes.Length})
 }
+foreach ($side in @($clientRelative,$serverRelative)) { Add-Generated "$side/lighthouse-content.json" $manifestJson }
 if ($manifest.Mode -eq 'test') {
-    [IO.File]::WriteAllText((Join-Path $stage "$serverRelative/allow-test"), '')
-    $cfg = Join-Path $stage 'BepInEx/config/com.manimal.lighthouse.cfg'
-    New-Item -ItemType Directory -Path (Split-Path $cfg -Parent) -Force | Out-Null
-    [IO.File]::WriteAllText($cfg, "[Development]`nAllowTestContent = true`n")
+    Add-Generated "$serverRelative/allow-test" ''
+    Add-Generated 'BepInEx/config/com.manimal.lighthouse.cfg' "[Development]`nAllowTestContent = true`n"
 }
-$staged = @(Get-ChildItem -LiteralPath $stage -Recurse -File | ForEach-Object {
-    $relative = [IO.Path]::GetRelativePath($stage, $_.FullName).Replace('\','/')
-    [pscustomobject]@{path=$relative;sha256=(Hash $_.FullName);bytes=$_.Length}
-})
-foreach ($entry in $inputs) {
-    $copy = @($staged | Where-Object path -eq $entry.path)
-    if ($copy.Count -ne 1 -or $copy[0].sha256 -ne $entry.sha256) { throw "Staged content mismatch: $($entry.path)" }
-}
-$report = [pscustomobject]@{status='passed';readyToDeploy=$true;mode=$manifest.Mode;stageRoot=$stage;version=$version;manifestSha256=(Hash (Join-Path $stage "$clientRelative/lighthouse-content.json"));files=$staged}
+$packageIndex = @($packageFiles | ForEach-Object { [pscustomobject]@{path=$_.path;sha256=$_.sha256;bytes=$_.bytes} })
+$manifestRecord = @($packageIndex | Where-Object path -eq "$clientRelative/lighthouse-content.json")
+if ($manifestRecord.Count -ne 1) { throw 'Generated client manifest is missing.' }
+$report = [pscustomobject]@{status='passed';readyToDeploy=$true;mode=$manifest.Mode;streamedDirectly=$true;version=$version;manifestSha256=$manifestRecord[0].sha256;files=$packageIndex}
 $report | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath (Join-Path $OutputDirectory 'package-verification.json')
-if ($StageOnly) { Write-Host "Verified staging: $stage"; return }
+if ($StageOnly) { Write-Host "Verified package plan: $($packageFiles.Count) runtime files; no multi-gigabyte staging copy created."; return }
 Add-Type -AssemblyName System.IO.Compression
+Add-Type -AssemblyName System.IO.Compression.FileSystem
 $tag = if ($manifest.Mode -eq 'test') { '-test' } else { '' }
 $archivePaths = [Collections.Generic.List[string]]::new()
 foreach ($kind in @('full','update','binaries')) {
     $suffix = if ($kind -eq 'full') { '' } else { "-$kind" }
     $zipPath = Join-Path $OutputDirectory "Manimal-Lighthouse$suffix-$version$tag.zip"
-    $pending = "$zipPath.$([Guid]::NewGuid().ToString('N')).partial"
     Write-Host "Creating $kind archive..."
-    $zip = [IO.Compression.ZipFile]::Open($pending, [IO.Compression.ZipArchiveMode]::Create)
-    $selected = @($staged | Where-Object {
+    # Stream source files straight into the archive. The map payload is over
+    # eight GiB, so copying it into build/ first can exhaust the system drive.
+    $stream = [IO.File]::Open($zipPath, [IO.FileMode]::Create, [IO.FileAccess]::ReadWrite, [IO.FileShare]::None)
+    $zip = [IO.Compression.ZipArchive]::new($stream, [IO.Compression.ZipArchiveMode]::Create)
+    $selected = @($packageFiles | Where-Object {
         $kind -eq 'full' -or ($kind -eq 'update' -and -not $_.path.EndsWith('.bundle')) -or ($kind -eq 'binaries' -and $_.path.EndsWith('.dll'))
     })
     try {
         foreach ($entry in $selected) {
-            [void][IO.Compression.ZipFileExtensions]::CreateEntryFromFile($zip, (Join-Path $stage $entry.path), $entry.path, [IO.Compression.CompressionLevel]::Fastest)
+            if ($entry.source) {
+                [void][IO.Compression.ZipFileExtensions]::CreateEntryFromFile($zip, $entry.source, $entry.path, [IO.Compression.CompressionLevel]::Fastest)
+            } else {
+                $generated = $zip.CreateEntry($entry.path, [IO.Compression.CompressionLevel]::Fastest)
+                $generatedStream = $generated.Open()
+                try { $generatedStream.Write($entry.content, 0, $entry.content.Length) }
+                finally { $generatedStream.Dispose() }
+            }
         }
-    } finally { $zip.Dispose() }
+    } finally { $zip.Dispose(); $stream.Dispose() }
     # Reopen the ZIP64 archive and verify its exact entry list and lengths.
-    $zip = [IO.Compression.ZipFile]::OpenRead($pending)
+    $zip = [IO.Compression.ZipFile]::OpenRead($zipPath)
     try {
         if ($zip.Entries.Count -ne $selected.Count) { throw 'Archive entry count mismatch.' }
         foreach ($entry in $selected) {
@@ -140,12 +165,7 @@ foreach ($kind in @('full','update','binaries')) {
             if (-not $archived -or $archived.Length -ne $entry.bytes) { throw "Archive entry mismatch: $($entry.path)" }
         }
     } finally { $zip.Dispose() }
-    [IO.File]::Move($pending,$zipPath,$true)
     $archivePaths.Add($zipPath)
 }
 $archivePaths | ForEach-Object { '{0}  {1}' -f (Hash $_), [IO.Path]::GetFileName($_) } | Set-Content -LiteralPath (Join-Path $OutputDirectory 'SHA256SUMS.txt')
-# Delete only the unique staging directory this invocation created under build/.
-$stagePrefix = [IO.Path]::GetFullPath((Join-Path $root 'build')).TrimEnd('\') + '\'
-if (-not [IO.Path]::GetFullPath($stage).StartsWith($stagePrefix,[StringComparison]::OrdinalIgnoreCase) -or (Split-Path $stage -Leaf) -notmatch '^package-stage-[a-f0-9]{32}$') { throw 'Unsafe staging cleanup path.' }
-Remove-Item -LiteralPath $stage -Recurse -Force
 Write-Host "Packages verified in $OutputDirectory. Update ZIP requires the same authored bundles; full ZIP is for new installs."
