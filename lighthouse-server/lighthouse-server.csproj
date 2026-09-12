@@ -1,12 +1,49 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup><TargetFramework>net10.0</TargetFramework><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable><AssemblyName>ManimalLighthouse.Server</AssemblyName><Version>$(ModVersion)</Version></PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>ManimalLighthouse.Server</AssemblyName>
+    <Version>$(ModVersion)</Version>
+    <ModServerPath Condition="'$(ModServerPath)' == ''">$(ServerPath)/user/mods/$(ModServerName)</ModServerPath>
+  </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="Btr/Lighthouse.json" LogicalName="Manimal.Lighthouse.Btr.json" />
     <ProjectReference Include="../lighthouse-shared/lighthouse-shared.csproj" />
-    <Reference Include="WTT-ServerCommonLib"><HintPath>$(CommonLibPath)</HintPath><Private>false</Private></Reference>
-    <Reference Include="SPTarkov.Server.Core"><HintPath>$(ServerPath)/SPTarkov.Server.Core.dll</HintPath><Private>false</Private></Reference>
-    <Reference Include="SPTarkov.DI"><HintPath>$(ServerPath)/SPTarkov.DI.dll</HintPath><Private>false</Private></Reference>
-    <Reference Include="SPTarkov.Common"><HintPath>$(ServerPath)/SPTarkov.Common.dll</HintPath><Private>false</Private></Reference>
-    <Reference Include="SemanticVersioning"><HintPath>$(ServerPath)/SemanticVersioning.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="WTT-ServerCommonLib">
+      <HintPath>$(CommonLibPath)</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="SPTarkov.Server.Core">
+      <HintPath>$(ServerPath)/SPTarkov.Server.Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="JetBrains.Annotations">
+      <HintPath>$(ServerPath)/JetBrains.Annotations.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="SPTarkov.DI">
+      <HintPath>$(ServerPath)/SPTarkov.DI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="SPTarkov.Common">
+      <HintPath>$(ServerPath)/SPTarkov.Common.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="SemanticVersioning">
+      <HintPath>$(ServerPath)/SemanticVersioning.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
   </ItemGroup>
+  <Target Name="InstallServerMod" AfterTargets="Build" Condition="'$(DesignTimeBuild)' != 'true'">
+    <ItemGroup>
+      <_ServerDatabase Include="$(MSBuildProjectDirectory)/db/**/*.json" />
+    </ItemGroup>
+    <MakeDir Directories="$(ModServerPath)" />
+    <Copy SourceFiles="$(TargetPath);$(MSBuildProjectDirectory)/bundles.json"
+          DestinationFolder="$(ModServerPath)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(_ServerDatabase)"
+          DestinationFiles="@(_ServerDatabase->'$(ModServerPath)/db/%(RecursiveDir)%(Filename)%(Extension)')"
+          SkipUnchangedFiles="true" />
+  </Target>
 </Project>

@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 
 namespace Manimal.Lighthouse.Shared;
 
-[Serializable] 
+[Serializable]
 public sealed class ServerCapability
 {
     public int Schema = 1;

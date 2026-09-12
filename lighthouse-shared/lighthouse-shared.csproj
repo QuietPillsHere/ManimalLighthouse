@@ -1,5 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup><TargetFramework>netstandard2.1</TargetFramework><Nullable>enable</Nullable><AssemblyName>ManimalLighthouse.Shared</AssemblyName><Version>$(ModVersion)</Version></PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+    <AssemblyName>ManimalLighthouse.Shared</AssemblyName>
+    <Version>$(ModVersion)</Version>
+    <ModClientPath Condition="'$(ModClientPath)' == ''">$(SPTPath)/BepInEx/plugins/$(ModClientName)</ModClientPath>
+    <ModServerPath Condition="'$(ModServerPath)' == ''">$(ServerPath)/user/mods/$(ModServerName)</ModServerPath>
+  </PropertyGroup>
   <Target Name="GenerateModIdentity" BeforeTargets="CoreCompile">
     <ItemGroup>
       <_ModIdentityLine Include="// Generated from Directory.Build.props. Do not edit." />
@@ -13,6 +20,13 @@
       <_ModIdentityLine Include="} }" />
     </ItemGroup>
     <WriteLinesToFile File="$(IntermediateOutputPath)ModIdentity.g.cs" Lines="@(_ModIdentityLine)" Overwrite="true" WriteOnlyWhenDifferent="true" />
-    <ItemGroup><Compile Include="$(IntermediateOutputPath)ModIdentity.g.cs" /></ItemGroup>
+    <ItemGroup>
+      <Compile Include="$(IntermediateOutputPath)ModIdentity.g.cs" />
+    </ItemGroup>
+  </Target>
+  <Target Name="InstallSharedLibrary" AfterTargets="Build" Condition="'$(DesignTimeBuild)' != 'true'">
+    <MakeDir Directories="$(ModClientPath);$(ModServerPath)" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModClientPath)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModServerPath)" SkipUnchangedFiles="true" />
   </Target>
 </Project>

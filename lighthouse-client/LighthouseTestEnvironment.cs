@@ -16,18 +16,34 @@ internal static class LighthouseTestEnvironment
 
     internal static void SceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (!LighthouseSceneLoader.IsNativeDonor(scene.name)) return;
-        if (LighthouseSceneLoader.IsNativeAmbienceDonor(scene.name)) return;
+        if (!LighthouseSceneLoader.IsNativeDonor(scene.name))
+        {
+            return;
+        }
+
+        if (LighthouseSceneLoader.IsNativeAmbienceDonor(scene.name))
+        {
+            return;
+        }
+
         var removed = 0;
+
         foreach (var root in scene.GetRootGameObjects())
+        {
             foreach (var component in root.GetComponentsInChildren<MonoBehaviour>(true))
             {
-                if (!component || !OldGeography.Contains(component.GetType().FullName)) continue;
+                if (!component || !OldGeography.Contains(component.GetType().FullName))
+                {
+                    continue;
+                }
+
                 component.enabled = false;
                 component.gameObject.SetActive(false);
                 UnityEngine.Object.Destroy(component);
                 removed++;
             }
+        }
+
         Plugin.Log.LogInfo("Lighthouse test: native camera/weather loaded; removed " + removed + " old geographic components. Retail volumes load from the replacement Scripts scene.");
     }
 }

@@ -1,13 +1,10 @@
 using System;
 using EFT;
-using HarmonyLib;
 using UnityEngine;
 using UnityEngine.Scripting;
 
 namespace Manimal.Lighthouse.Client;
 
-// Numeric counters only during play: no scene scans, file writes, GPU readback,
-// or forced collections. Log one summary per minute and at raid teardown.
 public sealed class LighthouseFrameStats : MonoBehaviour
 {
     private int _frames, _over50, _over100, _gcFrames, _slowGcFrames;
@@ -15,13 +12,13 @@ public sealed class LighthouseFrameStats : MonoBehaviour
     private float _seconds, _worst;
     private bool _wasFocused;
 
-    internal static void Install(Harmony harmony) => harmony.Patch(
-        AccessTools.Method(typeof(GameWorld), nameof(GameWorld.OnGameStarted)),
-        postfix: new HarmonyMethod(typeof(LighthouseFrameStats), nameof(StartTracking)));
-
-    private static void StartTracking(GameWorld __instance)
+    internal static void StartTracking(GameWorld __instance)
     {
-        if (!LighthouseSceneLoader.HasReplacement || __instance.GetComponent<LighthouseFrameStats>()) return;
+        if (!LighthouseSceneLoader.HasReplacement || __instance.GetComponent<LighthouseFrameStats>())
+        {
+            return;
+        }
+
         __instance.gameObject.AddComponent<LighthouseFrameStats>();
     }
 
@@ -40,25 +37,60 @@ public sealed class LighthouseFrameStats : MonoBehaviour
         var full = GC.CollectionCount(GC.MaxGeneration);
         var collected = gc != _lastGc || full != _lastFullGc;
         var focused = Application.isFocused;
+
         if (focused && _wasFocused)
         {
             var delta = Time.unscaledDeltaTime;
+
             _frames++;
             _seconds += delta;
-            if (delta > _worst) _worst = delta;
-            if (delta > .05f) { _over50++; if (collected) _slowGcFrames++; }
-            if (delta > .1f) _over100++;
-            if (collected) _gcFrames++;
+
+            if (delta > _worst)
+            {
+                _worst = delta;
+            }
+
+            if (delta > .05f)
+            {
+                _over50++;
+
+                if (collected)
+                {
+                    _slowGcFrames++;
+                }
+            }
+
+            if (delta > .1f)
+            {
+                _over100++;
+            }
+
+            if (collected)
+            {
+                _gcFrames++;
+            }
+
             _collections += gc - _lastGc;
             _fullCollections += full - _lastFullGc;
         }
+
         _lastGc = gc;
         _lastFullGc = full;
         _wasFocused = focused;
-        if (_seconds >= 60f) Report();
+
+        if (_seconds >= 60f)
+        {
+            Report();
+        }
     }
 
-    private void OnDestroy() { if (_frames != 0) Report(); }
+    private void OnDestroy()
+    {
+        if (_frames != 0)
+        {
+            Report();
+        }
+    }
 
     private void Report()
     {
