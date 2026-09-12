@@ -84,6 +84,8 @@ foreach ($file in Get-ChildItem -LiteralPath $serverDbRoot -Recurse -File -Filte
     $serverFiles.Add([pscustomobject]@{Path=$relative;Sha256=$inputs[$inputs.Count-1].sha256})
 }
 $bundleList = Join-Path $root 'lighthouse-server/bundles.json'
+# Ship the empty manifest on upgrades to retire our former item bundle registrations.
+# ContentBackport 2.0.2 supplies those bundles; only map-specific fallback items remain.
 Add-Input $bundleList "$serverRelative/bundles.json"
 $serverFiles.Add([pscustomobject]@{Path='bundles.json';Sha256=$inputs[$inputs.Count-1].sha256})
 $bundleManifest = Get-Content -LiteralPath $bundleList -Raw | ConvertFrom-Json

@@ -26,7 +26,7 @@ foreach ($inputPath in @($CommonLibPath, (Join-Path $serverPath 'user/mods/WTT-C
 $commonVersion = [Reflection.AssemblyName]::GetAssemblyName($CommonLibPath).Version
 if ($commonVersion -lt [Version]'3.0.6.0' -or $commonVersion -ge [Version]'3.1.0.0') { throw "CommonLib 3.0.6+ (3.0.x) required; found $commonVersion" }
 $backportVersion = [Reflection.AssemblyName]::GetAssemblyName((Join-Path $serverPath 'user/mods/WTT-ContentBackport/WTT-ContentBackport.dll')).Version
-if ($backportVersion -lt [Version]'2.0.1.0' -or $backportVersion -ge [Version]'2.1.0.0') { throw "ContentBackport 2.0.1+ (2.0.x) required; found $backportVersion" }
+if ($backportVersion -lt [Version]'2.0.2.0' -or $backportVersion -ge [Version]'2.1.0.0') { throw "ContentBackport 2.0.2+ (2.0.x) required; found $backportVersion" }
 $env:DOTNET_CLI_HOME = Join-Path $root '.dotnet-home'
 $env:DOTNET_CLI_TELEMETRY_OPTOUT = '1'
 $env:DOTNET_PROCESSOR_COUNT = '1'
