@@ -15,8 +15,22 @@ param(
 # output can be shown.
 if ($PSVersionTable.PSVersion -lt [version]'7.2') {
     $pwsh = Get-Command pwsh.exe -ErrorAction SilentlyContinue
-    if (-not $pwsh) {
-        throw 'PowerShell 7.2 or newer is required. Install PowerShell 7, then run package-release.ps1 again.'
+    $pwshPath = if ($pwsh) { $pwsh.Source } else { $null }
+    if (-not $pwshPath) {
+        # Explorer does not inherit Codex's runtime additions to PATH.
+        foreach ($candidate in @(
+            (Join-Path $env:ProgramFiles 'PowerShell/7/pwsh.exe'),
+            (Join-Path $env:LOCALAPPDATA 'Microsoft/WinGet/Links/pwsh.exe'),
+            (Join-Path $env:USERPROFILE '.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.exe')
+        )) {
+            if (Test-Path -LiteralPath $candidate -PathType Leaf) {
+                $pwshPath = $candidate
+                break
+            }
+        }
+    }
+    if (-not $pwshPath) {
+        throw 'PowerShell 7.2 or newer is required. Install PowerShell 7, then run package-release.cmd again.'
     }
     $arguments = @('-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', $PSCommandPath)
     if ($PSBoundParameters.ContainsKey('SPTPath')) { $arguments += @('-SPTPath', $SPTPath) }
@@ -24,12 +38,20 @@ if ($PSVersionTable.PSVersion -lt [version]'7.2') {
     if ($PSBoundParameters.ContainsKey('OutputDirectory')) { $arguments += @('-OutputDirectory', $OutputDirectory) }
     if ($ValidateOnly) { $arguments += '-ValidateOnly' }
     if ($StageOnly) { $arguments += '-StageOnly' }
-    & $pwsh.Source @arguments
+    & $pwshPath @arguments
     exit $LASTEXITCODE
 }
 
 $ErrorActionPreference = 'Stop'
 $root = $PSScriptRoot
+$transcriptStarted = $false
+try {
+    $logDirectory = Join-Path $root 'build/package-logs'
+    New-Item -ItemType Directory -Path $logDirectory -Force | Out-Null
+    $logPath = Join-Path $logDirectory ('package-' + (Get-Date -Format 'yyyyMMdd-HHmmss-fff') + '.log')
+    Start-Transcript -LiteralPath $logPath | Out-Null
+    $transcriptStarted = $true
+    Write-Host "Packaging log: $logPath"
 if ([string]::IsNullOrWhiteSpace($OutputDirectory)) { $OutputDirectory = Join-Path $root 'dist' }
 [xml]$props = Get-Content -LiteralPath (Join-Path $root 'Directory.Build.props')
 $version = [string]$props.Project.PropertyGroup.ModVersion
@@ -171,3 +193,10 @@ foreach ($kind in @('full','update','binaries')) {
 }
 $archivePaths | ForEach-Object { '{0}  {1}' -f (Hash $_), [IO.Path]::GetFileName($_) } | Set-Content -LiteralPath (Join-Path $OutputDirectory 'SHA256SUMS.txt')
 Write-Host "Packages verified in $OutputDirectory. Update ZIP requires the same authored bundles; full ZIP is for new installs."
+} catch {
+    # Record the error before closing the transcript, then preserve a failing exit status.
+    Write-Host ($_ | Out-String) -ForegroundColor Red
+    throw
+} finally {
+    if ($transcriptStarted) { Stop-Transcript | Out-Null }
+}

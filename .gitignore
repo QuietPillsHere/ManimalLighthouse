@@ -8,6 +8,7 @@
 !/NuGet.Config
 !/build.ps1
 !/package-release.ps1
+!/package-release.cmd
 !/lighthouse-client/
 !/lighthouse-server/
 !/lighthouse-shared/
