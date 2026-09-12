@@ -20,7 +20,7 @@ public record ModMetadata : IModMetadata
     public Dictionary<string, Range>? ModDependencies { get; init; } = new()
     {
         ["com.wtt.commonlib"] = new Range("~3.0.6"),
-        ["com.wtt.contentbackport"] = new Range("~2.0.2")
+        ["com.wtt.contentbackport"] = new Range("~2.0.1")
     };
     public string? Url { get; init; } = string.IsNullOrEmpty(ModIdentity.SourceUrl) ? null : ModIdentity.SourceUrl;
     public string License { get; init; } = "MIT";
