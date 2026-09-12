@@ -12,6 +12,9 @@ public sealed class ContentManifest
     public string SourceBuild = "1.1.5.47242";
     public string Mode = "development";
     public bool Ready;
+    // The converted map uses SPT's native weather/camera and ambient audio scenes.
+    // This is a runtime dependency, independent of whether content is a test or release.
+    public bool UseNativeEnvironment;
     public List<BundleEntry> Bundles = [];
     public List<SceneEntry> Scenes = [];
     public List<PayloadFile> ServerFiles = [];

@@ -5,6 +5,7 @@ param(
     [string]$SPTPath,
     [string]$AssetSourcePath,
     [string]$OutputDirectory,
+    [switch]$TestPackage,
     [switch]$ValidateOnly,
     [switch]$StageOnly
 )
@@ -36,6 +37,7 @@ if ($PSVersionTable.PSVersion -lt [version]'7.2') {
     if ($PSBoundParameters.ContainsKey('SPTPath')) { $arguments += @('-SPTPath', $SPTPath) }
     if ($PSBoundParameters.ContainsKey('AssetSourcePath')) { $arguments += @('-AssetSourcePath', $AssetSourcePath) }
     if ($PSBoundParameters.ContainsKey('OutputDirectory')) { $arguments += @('-OutputDirectory', $OutputDirectory) }
+    if ($TestPackage) { $arguments += '-TestPackage' }
     if ($ValidateOnly) { $arguments += '-ValidateOnly' }
     if ($StageOnly) { $arguments += '-StageOnly' }
     & $pwshPath @arguments
@@ -56,6 +58,8 @@ if ([string]::IsNullOrWhiteSpace($OutputDirectory)) { $OutputDirectory = Join-Pa
 [xml]$props = Get-Content -LiteralPath (Join-Path $root 'Directory.Build.props')
 $version = [string]$props.Project.PropertyGroup.ModVersion
 $sourceUrl = [string]$props.Project.PropertyGroup.ModSourceUrl
+$packageName = ([string]$props.Project.PropertyGroup.ModPackageName).Replace('$(ModUsername)', [string]$props.Project.PropertyGroup.ModUsername)
+if ([string]::IsNullOrWhiteSpace($packageName) -or $packageName -notmatch '^[A-Za-z0-9.-]+$') { throw 'ModPackageName must be a safe archive name.' }
 if (-not $SPTPath) { $SPTPath = [string]$props.Project.PropertyGroup.SPTPath.'#text' }
 if (-not $AssetSourcePath) {
     $AssetSourcePath = Join-Path $root 'build/install-test'
@@ -69,12 +73,23 @@ $serverSource = Join-Path $AssetSourcePath $serverRelative
 $manifestPath = Join-Path $clientSource 'lighthouse-content.json'
 $manifest = Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json
 if ([string]::IsNullOrWhiteSpace($sourceUrl)) {
-    if ($manifest.Mode -ne 'test') { throw 'Public release requires ModSourceUrl in Directory.Build.props and a source link on the mod listing.' }
+    if (-not $TestPackage) { throw 'Public release requires ModSourceUrl in Directory.Build.props and a source link on the mod listing.' }
     Write-Warning 'Local test package only: source repository URL is not set; not ready for public publication.'
 }
 if ((Get-FileHash -LiteralPath $manifestPath).Hash -ne (Get-FileHash -LiteralPath (Join-Path $serverSource 'lighthouse-content.json')).Hash) { throw 'Asset source has mismatched client/server manifests.' }
 if ($manifest.Schema -ne 1 -or $manifest.TargetClientBuild -ne '0.16.9.40743' -or @($manifest.Scenes).Count -ne 29) { throw 'Unsupported or incomplete Lighthouse content manifest.' }
 if (($manifest.Mode -ne 'test' -or $manifest.Ready) -and ($manifest.Mode -ne 'rework' -or -not $manifest.Ready)) { throw 'Only complete test or rework payloads can be packaged.' }
+# Release approval changes the content gate, not the map's native scene dependencies.
+$useNativeEnvironment = $manifest.Mode -eq 'test' -or $manifest.UseNativeEnvironment -eq $true
+$manifest | Add-Member -NotePropertyName UseNativeEnvironment -NotePropertyValue $useNativeEnvironment -Force
+if ($TestPackage) {
+    $manifest.Mode = 'test'
+    $manifest.Ready = $false
+} else {
+    $manifest.Mode = 'rework'
+    $manifest.Ready = $true
+    $manifest.ContentId = $manifest.ContentId.Replace('-test-', '-rework-')
+}
 function Resolve-Payload([string]$Base, [string]$Relative) {
     if ([string]::IsNullOrWhiteSpace($Relative) -or $Relative.Contains('\') -or $Relative.Contains(':') -or $Relative.StartsWith('/') -or ($Relative.Split('/') | Where-Object { $_ -in '', '.', '..' })) { throw "Unsafe payload path: $Relative" }
     $prefix = [IO.Path]::GetFullPath($Base).TrimEnd('\') + '\'
@@ -150,16 +165,17 @@ if ($manifest.Mode -eq 'test') {
 $packageIndex = @($packageFiles | ForEach-Object { [pscustomobject]@{path=$_.path;sha256=$_.sha256;bytes=$_.bytes} })
 $manifestRecord = @($packageIndex | Where-Object path -eq "$clientRelative/lighthouse-content.json")
 if ($manifestRecord.Count -ne 1) { throw 'Generated client manifest is missing.' }
-$report = [pscustomobject]@{status='passed';readyToDeploy=$true;mode=$manifest.Mode;streamedDirectly=$true;version=$version;manifestSha256=$manifestRecord[0].sha256;files=$packageIndex}
-$report | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath (Join-Path $OutputDirectory 'package-verification.json')
+$report = [pscustomobject]@{status='plan-verified';readyToDeploy=$false;mode=$manifest.Mode;useNativeEnvironment=$manifest.UseNativeEnvironment;streamedDirectly=$true;version=$version;sourceUrl=$sourceUrl;manifestSha256=$manifestRecord[0].sha256;files=$packageIndex}
+$tag = if ($manifest.Mode -eq 'test') { '-test' } else { '' }
+$reportPath = Join-Path $OutputDirectory "package-verification-$version$tag.json"
+$report | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $reportPath
 if ($StageOnly) { Write-Host "Verified package plan: $($packageFiles.Count) runtime files; no multi-gigabyte staging copy created."; return }
 Add-Type -AssemblyName System.IO.Compression
 Add-Type -AssemblyName System.IO.Compression.FileSystem
-$tag = if ($manifest.Mode -eq 'test') { '-test' } else { '' }
 $archivePaths = [Collections.Generic.List[string]]::new()
 foreach ($kind in @('full','update','binaries')) {
     $suffix = if ($kind -eq 'full') { '' } else { "-$kind" }
-    $zipPath = Join-Path $OutputDirectory "Manimal-Lighthouse$suffix-$version$tag.zip"
+    $zipPath = Join-Path $OutputDirectory "$packageName$suffix-$version$tag.zip"
     Write-Host "Creating $kind archive..."
     # Stream source files straight into the archive. The map payload is over
     # eight GiB, so copying it into build/ first can exhaust the system drive.
@@ -191,7 +207,10 @@ foreach ($kind in @('full','update','binaries')) {
     } finally { $zip.Dispose() }
     $archivePaths.Add($zipPath)
 }
-$archivePaths | ForEach-Object { '{0}  {1}' -f (Hash $_), [IO.Path]::GetFileName($_) } | Set-Content -LiteralPath (Join-Path $OutputDirectory 'SHA256SUMS.txt')
+$archivePaths | ForEach-Object { '{0}  {1}' -f (Hash $_), [IO.Path]::GetFileName($_) } | Set-Content -LiteralPath (Join-Path $OutputDirectory "SHA256SUMS-$packageName-$version$tag.txt")
+$report.status = 'passed'
+$report.readyToDeploy = $true
+$report | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $reportPath
 Write-Host "Packages verified in $OutputDirectory. Update ZIP requires the same authored bundles; full ZIP is for new installs."
 } catch {
     # Record the error before closing the transcript, then preserve a failing exit status.

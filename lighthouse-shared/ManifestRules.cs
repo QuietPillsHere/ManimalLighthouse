@@ -9,6 +9,9 @@ public static class ManifestRules
 {
     public const string FileName = "lighthouse-content.json";
 
+    public static bool UsesNativeEnvironment(ContentManifest manifest) =>
+        manifest.UseNativeEnvironment || manifest.Mode == "test";
+
     public static void Validate(ContentManifest manifest)
     {
         if (manifest is not { Schema: 1 })

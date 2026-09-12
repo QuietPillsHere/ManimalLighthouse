@@ -175,7 +175,7 @@ internal static class LighthouseSceneLoader
                     throw new InvalidDataException("Bundled replacement scene missing: " + mapping.ReplacementPath);
                 }
 
-                if (manifest.Mode == "test" &&
+                if (ManifestRules.UsesNativeEnvironment(manifest) &&
                     (i == 0 || Path.GetFileNameWithoutExtension(original.path) == "Lighthouse_Sound"))
                 {
                     replacementKeys.Add(original);

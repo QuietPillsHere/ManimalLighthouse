@@ -1,14 +1,14 @@
 <Project>
   <PropertyGroup>
     <!-- Single source of truth for build and runtime plugin identity. -->
-    <ModVersion>0.1.17</ModVersion>
+    <ModVersion>1.0.0</ModVersion>
     <ModGuid>com.manimal.lighthouse</ModGuid>
     <ModUsername>Manimal</ModUsername>
     <ModDisplayName>LighthouseRework</ModDisplayName>
     <ModClientName>$(ModUsername)-$(ModDisplayName)</ModClientName>
     <ModServerName>$(ModUsername)$(ModDisplayName)</ModServerName>
-    <!-- Set to the published source repository before a public release. -->
-    <ModSourceUrl></ModSourceUrl>
+    <ModSourceUrl>https://github.com/danauraborealis/ManimalLighthouse</ModSourceUrl>
+    <ModPackageName>$(ModUsername)-Lighthouse-SPT-4.1</ModPackageName>
     <Authors>$(ModUsername)</Authors>
     <RepositoryUrl>$(ModSourceUrl)</RepositoryUrl>
     <PackageProjectUrl>$(ModSourceUrl)</PackageProjectUrl>
@@ -24,6 +24,9 @@
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <NuGetAudit>false</NuGetAudit>
   </PropertyGroup>
+  <ItemGroup>
+    <AssemblyMetadata Include="RepositoryUrl" Value="$(ModSourceUrl)" />
+  </ItemGroup>
 </Project>
 
 
