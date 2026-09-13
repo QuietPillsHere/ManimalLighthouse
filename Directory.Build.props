@@ -8,7 +8,7 @@
     <ModClientName>$(ModUsername)-$(ModDisplayName)</ModClientName>
     <ModServerName>$(ModUsername)$(ModDisplayName)</ModServerName>
     <ModSourceUrl>https://github.com/danauraborealis/ManimalLighthouse</ModSourceUrl>
-    <ModPackageName>$(ModUsername)-Lighthouse-SPT-4.1</ModPackageName>
+    <ModPackageName>$(ModUsername)-Lighthouse</ModPackageName>
     <Authors>$(ModUsername)</Authors>
     <RepositoryUrl>$(ModSourceUrl)</RepositoryUrl>
     <PackageProjectUrl>$(ModSourceUrl)</PackageProjectUrl>

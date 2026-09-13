@@ -38,6 +38,10 @@ public sealed class Plugin : BaseUnityPlugin
         new Patches.ShaderRebind.InitPatch().Enable();
         new Patches.ShaderRebind.OnGameStartedPatch().Enable();
         new Patches.KeyCleanup.ExitPatch().Enable();
+        new Patches.KeyCleanup.EnterPatch().Enable();
+        new Patches.KeyCleanup.StopPatch().Enable();
+        new Patches.KeyCleanup.BaseUpdatePatch().Enable();
+        new Patches.KeyCleanup.SpawnPatch().Enable();
         new Patches.TunnelDoor.OnEnablePatch().Enable();
         new Patches.RainDiagnostics.InitPatch().Enable();
         new Patches.PadlockAudio.PlaySoundPatch().Enable();

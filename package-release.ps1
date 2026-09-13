@@ -77,7 +77,8 @@ if ([string]::IsNullOrWhiteSpace($sourceUrl)) {
     Write-Warning 'Local test package only: source repository URL is not set; not ready for public publication.'
 }
 if ((Get-FileHash -LiteralPath $manifestPath).Hash -ne (Get-FileHash -LiteralPath (Join-Path $serverSource 'lighthouse-content.json')).Hash) { throw 'Asset source has mismatched client/server manifests.' }
-if ($manifest.Schema -ne 1 -or $manifest.TargetClientBuild -ne '0.16.9.40743' -or @($manifest.Scenes).Count -ne 29) { throw 'Unsupported or incomplete Lighthouse content manifest.' }
+if ($manifest.Schema -notin 1, 2 -or $manifest.TargetClientBuild -ne '0.16.9.40743' -or @($manifest.Scenes).Count -ne 29) { throw 'Unsupported or incomplete Lighthouse content manifest.' }
+if ($manifest.Schema -eq 2 -and -not $TestPackage -and -not $manifest.Ready) { throw 'Optimized native-asset content still requires runtime/raid validation. Use -TestPackage for experimental content.' }
 if (($manifest.Mode -ne 'test' -or $manifest.Ready) -and ($manifest.Mode -ne 'rework' -or -not $manifest.Ready)) { throw 'Only complete test or rework payloads can be packaged.' }
 # Release approval changes the content gate, not the map's native scene dependencies.
 $useNativeEnvironment = $manifest.Mode -eq 'test' -or $manifest.UseNativeEnvironment -eq $true
@@ -146,6 +147,11 @@ if (-not $manifest.ContentId.EndsWith('-commonlib1')) { $manifest.ContentId += '
 $OutputDirectory = [IO.Path]::GetFullPath($OutputDirectory)
 New-Item -ItemType Directory -Path $OutputDirectory -Force | Out-Null
 $manifestJson = $manifest | ConvertTo-Json -Depth 30
+Add-Type -Path (Join-Path $root 'lighthouse-shared/bin/Release/netstandard2.1/ManimalLighthouse.Shared.dll')
+$manifestOptions = [System.Text.Json.JsonSerializerOptions]::new()
+$manifestOptions.IncludeFields = $true
+$checkedManifest = [System.Text.Json.JsonSerializer]::Deserialize($manifestJson, [Manimal.Lighthouse.Shared.ContentManifest], $manifestOptions)
+[Manimal.Lighthouse.Shared.ManifestRules]::Validate($checkedManifest)
 $packageFiles = [Collections.Generic.List[object]]::new()
 foreach ($entry in $inputs) { $packageFiles.Add($entry) }
 function Add-Generated([string]$Destination, [string]$Content) {
@@ -160,7 +166,7 @@ function Add-Generated([string]$Destination, [string]$Content) {
 foreach ($side in @($clientRelative,$serverRelative)) { Add-Generated "$side/lighthouse-content.json" $manifestJson }
 if ($manifest.Mode -eq 'test') {
     Add-Generated "$serverRelative/allow-test" ''
-    Add-Generated 'BepInEx/config/com.manimal.lighthouse.cfg' "[Development]`nAllowTestContent = true`n"
+    Add-Generated "BepInEx/config/$($props.Project.PropertyGroup.ModGuid).cfg" "[Development]`nAllowTestContent = true`n"
 }
 $packageIndex = @($packageFiles | ForEach-Object { [pscustomobject]@{path=$_.path;sha256=$_.sha256;bytes=$_.bytes} })
 $manifestRecord = @($packageIndex | Where-Object path -eq "$clientRelative/lighthouse-content.json")
@@ -173,7 +179,10 @@ if ($StageOnly) { Write-Host "Verified package plan: $($packageFiles.Count) runt
 Add-Type -AssemblyName System.IO.Compression
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 $archivePaths = [Collections.Generic.List[string]]::new()
-foreach ($kind in @('full','update','binaries')) {
+# Schema 2 migrates the asset set; distributing its new manifest without all
+# bundles would produce a mismatched install. Its first package is complete.
+$archiveKinds = if ($manifest.Schema -eq 2) { @('full') } else { @('full','update','binaries') }
+foreach ($kind in $archiveKinds) {
     $suffix = if ($kind -eq 'full') { '' } else { "-$kind" }
     $zipPath = Join-Path $OutputDirectory "$packageName$suffix-$version$tag.zip"
     Write-Host "Creating $kind archive..."
@@ -211,7 +220,7 @@ $archivePaths | ForEach-Object { '{0}  {1}' -f (Hash $_), [IO.Path]::GetFileName
 $report.status = 'passed'
 $report.readyToDeploy = $true
 $report | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $reportPath
-Write-Host "Packages verified in $OutputDirectory. Update ZIP requires the same authored bundles; full ZIP is for new installs."
+Write-Host "Packages verified in $OutputDirectory. Native-asset migrations use the complete full ZIP. Legacy update ZIPs require the same authored bundles."
 } catch {
     # Record the error before closing the transcript, then preserve a failing exit status.
     Write-Host ($_ | Out-String) -ForegroundColor Red

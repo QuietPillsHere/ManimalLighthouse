@@ -19,4 +19,7 @@ public sealed class ContentManifest
     public List<SceneEntry> Scenes = [];
     public List<PayloadFile> ServerFiles = [];
     public List<PayloadFile> Sidecars = [];
+    // Schema 2 bundles borrow objects from these installed player-data files.
+    // These files are verified in place and are never part of the mod package.
+    public List<PayloadFile> NativeFiles = [];
 }

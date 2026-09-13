@@ -89,8 +89,10 @@ internal static class LighthouseSceneLoader
             var response = JsonConvert.DeserializeObject<ServerCapability>(await request)!;
 
             ManifestRules.CheckCapability(manifest, ManifestRules.Hash(path), response);
+            var nativeDataPath = Application.dataPath;
             await Task.Run(() =>
             {
+                LighthouseNativeAssets.Verify(nativeDataPath, manifest, operation._cancellationToken);
                 foreach (var bundle in manifest.Bundles)
                 {
                     operation._cancellationToken.ThrowIfCancellationRequested();

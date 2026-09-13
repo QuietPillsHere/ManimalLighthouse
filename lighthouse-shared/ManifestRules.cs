@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 
 namespace Manimal.Lighthouse.Shared;
 
@@ -14,7 +15,7 @@ public static class ManifestRules
 
     public static void Validate(ContentManifest manifest)
     {
-        if (manifest is not { Schema: 1 })
+        if (manifest == null || manifest.Schema is not (1 or 2))
         {
             throw new InvalidDataException("Unsupported Lighthouse manifest schema.");
         }
@@ -109,6 +110,19 @@ public static class ManifestRules
 
         ValidateFiles(manifest.ServerFiles);
         ValidateFiles(manifest.Sidecars);
+        ValidateFiles(manifest.NativeFiles);
+        if ((manifest.Schema == 1 && manifest.NativeFiles.Count != 0)
+            || (manifest.Schema == 2 && manifest.NativeFiles.Count == 0))
+        {
+            throw new InvalidDataException("Native asset dependencies require a nonempty schema 2 contract.");
+        }
+        foreach (var file in manifest.NativeFiles)
+        {
+            if (!Regex.IsMatch(file.Path, @"^(?:(?:sharedassets[0-9]+|resources)\.assets(?:\.resS)?|sharedassets[0-9]+\.resource)$"))
+            {
+                throw new InvalidDataException("Unsupported native player-data file: " + file.Path);
+            }
+        }
 
         switch (manifest.Ready)
         {
