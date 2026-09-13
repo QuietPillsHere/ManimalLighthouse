@@ -118,7 +118,7 @@ public static class ManifestRules
         }
         foreach (var file in manifest.NativeFiles)
         {
-            if (!Regex.IsMatch(file.Path, @"^(?:(?:sharedassets[0-9]+|resources)\.assets(?:\.resS)?|sharedassets[0-9]+\.resource)$"))
+            if (!Regex.IsMatch(file.Path, @"^(?:(?:sharedassets[0-9]+|resources)\.assets(?:\.resS)?|(?:sharedassets[0-9]+|resources)\.resource)$"))
             {
                 throw new InvalidDataException("Unsupported native player-data file: " + file.Path);
             }

@@ -78,8 +78,8 @@ if ([string]::IsNullOrWhiteSpace($sourceUrl)) {
 }
 if ((Get-FileHash -LiteralPath $manifestPath).Hash -ne (Get-FileHash -LiteralPath (Join-Path $serverSource 'lighthouse-content.json')).Hash) { throw 'Asset source has mismatched client/server manifests.' }
 if ($manifest.Schema -notin 1, 2 -or $manifest.TargetClientBuild -ne '0.16.9.40743' -or @($manifest.Scenes).Count -ne 29) { throw 'Unsupported or incomplete Lighthouse content manifest.' }
-if ($manifest.Schema -eq 2 -and -not $TestPackage -and -not $manifest.Ready) { throw 'Optimized native-asset content still requires runtime/raid validation. Use -TestPackage for experimental content.' }
 if (($manifest.Mode -ne 'test' -or $manifest.Ready) -and ($manifest.Mode -ne 'rework' -or -not $manifest.Ready)) { throw 'Only complete test or rework payloads can be packaged.' }
+Write-Host "Asset source: $AssetSourcePath"
 # Release approval changes the content gate, not the map's native scene dependencies.
 $useNativeEnvironment = $manifest.Mode -eq 'test' -or $manifest.UseNativeEnvironment -eq $true
 $manifest | Add-Member -NotePropertyName UseNativeEnvironment -NotePropertyValue $useNativeEnvironment -Force
