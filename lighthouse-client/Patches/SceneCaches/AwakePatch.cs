@@ -12,8 +12,12 @@ internal sealed class AwakePatch : ModulePatch
     }
 
     [PatchPrefix]
+    // Enable Labyrinth reads every scene's extract entries without null checks.
+    // Remove missing backport references before its global scene prefix runs.
+    [HarmonyBefore("LocationSceneAwakePatch")]
     private static void Prefix(LocationScene __instance)
     {
         LighthouseSceneCaches.BeforeAwake(__instance);
+        LighthouseKeeperRestore.OnLocationSceneAwake(__instance);
     }
 }

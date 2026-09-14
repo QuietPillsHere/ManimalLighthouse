@@ -44,6 +44,19 @@ internal static class LighthouseTestEnvironment
             }
         }
 
-        Plugin.Log.LogInfo("Lighthouse test: native camera/weather loaded; removed " + removed + " old geographic components. Retail volumes load from the replacement Scripts scene.");
+        // the replacement Scripts scene carries the retail level borders and water volumes; the donor's
+        // old copies still fence off areas the rework opened (the sniper peak camp)
+        var fences = 0;
+
+        foreach (var root in scene.GetRootGameObjects())
+        {
+            if (root.name == "Lighthouse_LevelBorders" || root.name == "Lighthouse_Watercolliders")
+            {
+                root.SetActive(false);
+                fences++;
+            }
+        }
+
+        Plugin.Log.LogInfo("Lighthouse test: native camera/weather loaded; removed " + removed + " old geographic components and " + fences + " old border/water roots. Retail volumes load from the replacement Scripts scene.");
     }
 }

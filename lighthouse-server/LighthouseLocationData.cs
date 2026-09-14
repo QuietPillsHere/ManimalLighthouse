@@ -118,6 +118,10 @@ public static class LighthouseLocationData
 
     public static void Apply(Location target, Location replacement)
     {
+        LighthouseLazyLoadCompatibility.PreserveTransformers(target.LooseLoot, replacement.LooseLoot);
+        LighthouseLazyLoadCompatibility.PreserveTransformers(target.StaticLoot, replacement.StaticLoot);
+        LighthouseLazyLoadCompatibility.PreserveTransformers(target.StaticContainers, replacement.StaticContainers);
+
         target.Base = replacement.Base;
         target.LooseLoot = replacement.LooseLoot;
         target.StaticLoot = replacement.StaticLoot;

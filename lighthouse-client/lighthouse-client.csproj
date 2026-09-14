@@ -7,9 +7,23 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources/manimal_lighthouse_rain.bundle" LogicalName="Manimal.Lighthouse.Rain.bundle" />
+    <EmbeddedResource Include="Resources/manimal_lighthouse_keeper.bundle" LogicalName="Manimal.Lighthouse.Keeper.bundle" />
+    <EmbeddedResource Include="Resources/keeper-restore.json" LogicalName="Manimal.Lighthouse.Keeper.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../lighthouse-shared/lighthouse-shared.csproj" />
+    <Reference Include="UniTask">
+      <HintPath>$(SPTPath)/BepInEx/plugins/UnityToolkit/UniTask.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>$(GameManaged)/UnityEngine.UnityWebRequestModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="ZLinq">
+      <HintPath>$(SPTPath)/BepInEx/plugins/UnityToolkit/ZLinq.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="BepInEx">
       <HintPath>$(SPTPath)/BepInEx/core/BepInEx.dll</HintPath>
       <Private>false</Private>

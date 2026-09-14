@@ -1,4 +1,4 @@
-# Build fresh plugins and package only manifest-declared runtime payloads.
+﻿# Build fresh plugins and package only manifest-declared runtime payloads.
 # Authored Unity bundles are supplied by a staged install or -AssetSourcePath.
 [CmdletBinding()]
 param(
@@ -6,6 +6,7 @@ param(
     [string]$AssetSourcePath,
     [string]$OutputDirectory,
     [switch]$TestPackage,
+    [switch]$UpdatePackage,
     [switch]$ValidateOnly,
     [switch]$StageOnly
 )
@@ -38,6 +39,7 @@ if ($PSVersionTable.PSVersion -lt [version]'7.2') {
     if ($PSBoundParameters.ContainsKey('AssetSourcePath')) { $arguments += @('-AssetSourcePath', $AssetSourcePath) }
     if ($PSBoundParameters.ContainsKey('OutputDirectory')) { $arguments += @('-OutputDirectory', $OutputDirectory) }
     if ($TestPackage) { $arguments += '-TestPackage' }
+    if ($UpdatePackage) { $arguments += '-UpdatePackage' }
     if ($ValidateOnly) { $arguments += '-ValidateOnly' }
     if ($StageOnly) { $arguments += '-StageOnly' }
     & $pwshPath @arguments
@@ -110,8 +112,10 @@ function Add-Input([string]$Source, [string]$Destination, [string]$Expected = ''
     $inputs.Add([pscustomobject]@{source=$Source;path=$Destination;sha256=$actual;bytes=(Get-Item -LiteralPath $Source).Length})
 }
 Write-Host 'Checking authored bundles and sidecars...'
+$authoredPaths = [Collections.Generic.HashSet[string]]::new([StringComparer]::OrdinalIgnoreCase)
 foreach ($entry in @($manifest.Bundles) + @($manifest.Sidecars)) {
     Add-Input (Resolve-Payload $clientSource $entry.Path) "$clientRelative/$($entry.Path)" $entry.Sha256
+    [void]$authoredPaths.Add("$clientRelative/$($entry.Path)")
 }
 # Repo-owned database files replace the old direct-registration payload.
 $serverFiles = [Collections.Generic.List[object]]::new()
@@ -181,7 +185,8 @@ Add-Type -AssemblyName System.IO.Compression.FileSystem
 $archivePaths = [Collections.Generic.List[string]]::new()
 # Schema 2 migrates the asset set; distributing its new manifest without all
 # bundles would produce a mismatched install. Its first package is complete.
-$archiveKinds = if ($manifest.Schema -eq 2) { @('full') } else { @('full','update','binaries') }
+# -UpdatePackage ships DLLs, database files and manifests only; the installed bundles and sidecars must already match.
+$archiveKinds = if ($UpdatePackage) { @('update') } elseif ($manifest.Schema -eq 2) { @('full') } else { @('full','update','binaries') }
 foreach ($kind in $archiveKinds) {
     $suffix = if ($kind -eq 'full') { '' } else { "-$kind" }
     $zipPath = Join-Path $OutputDirectory "$packageName$suffix-$version$tag.zip"
@@ -191,7 +196,7 @@ foreach ($kind in $archiveKinds) {
     $stream = [IO.File]::Open($zipPath, [IO.FileMode]::Create, [IO.FileAccess]::ReadWrite, [IO.FileShare]::None)
     $zip = [IO.Compression.ZipArchive]::new($stream, [IO.Compression.ZipArchiveMode]::Create)
     $selected = @($packageFiles | Where-Object {
-        $kind -eq 'full' -or ($kind -eq 'update' -and -not $_.path.EndsWith('.bundle')) -or ($kind -eq 'binaries' -and $_.path.EndsWith('.dll'))
+        $kind -eq 'full' -or ($kind -eq 'update' -and -not $authoredPaths.Contains($_.path)) -or ($kind -eq 'binaries' -and $_.path.EndsWith('.dll'))
     })
     try {
         foreach ($entry in $selected) {

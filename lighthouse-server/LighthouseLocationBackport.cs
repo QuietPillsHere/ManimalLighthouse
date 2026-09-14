@@ -4,13 +4,15 @@ using Manimal.Lighthouse.Shared;
 using SPTarkov.DI.Annotations;
 using SPTarkov.Server.Core.DI;
 using SPTarkov.Server.Core.Models.Spt.Tables;
+using SPTarkov.Common.Models.Logging;
 using SPTarkov.Server.Core.Utils;
 using Path = System.IO.Path;
 
 namespace Manimal.Lighthouse.Server;
 
 [Injectable(TypePriority = OnLoadOrder.Preload + 4), UsedImplicitly]
-public sealed class LighthouseLocationBackport(LocationTable locations, TemplateTable templates, GlobalTable globals, LocaleTable locales, JsonUtil json) : IOnLoad
+public sealed class LighthouseLocationBackport(LocationTable locations, TemplateTable templates, GlobalTable globals, LocaleTable locales, JsonUtil json,
+    IServiceProvider provider, ISptLogger<LighthouseLocationBackport> logger) : IOnLoad
 {
     internal static readonly JsonSerializerOptions JSONSerializerOptions = new() { IncludeFields = true };
     
@@ -50,6 +52,7 @@ public sealed class LighthouseLocationBackport(LocationTable locations, Template
         LighthouseBtr.Apply(globals.Configuration.BTRSettings, templates.LocationServices.BtrServerSettings, btr);
         LighthouseBtr.ApplyLocales(locales, btr);
         LighthouseLocationData.Apply(locations.Lighthouse, replacement);
+        LighthouseBotPlacementOptOut.Apply(provider, logger);
         LighthouseServerState.AppliedManifestHash = hash;
 
         return Task.CompletedTask;

@@ -1,0 +1,2136 @@
+{
+ "purpose": "Runtime component restore for retail objects the converter could not author; field values follow the target 0.16.9 layout",
+ "components": [
+  {
+   "scene": "Lighthouse_DesignStuff",
+   "path": "SBG_DesignStuff~0/OO~0/INTERACTIVE_RADIO~0/Radio_1~0/INTERACTIVE_Radio~0/Switcher~0",
+   "type": "EFT.Interactive.Switch",
+   "enabled": true,
+   "source": {
+    "file": "level189",
+    "pid": 130118,
+    "sha256": "0cc73d6a816101a5e017544cab2ccdb39933382676f3f68f81d6cd41d1ab63a4",
+    "method": "validated_target_projection"
+   },
+   "fields": {
+    "AutoTurnOff": 0,
+    "AutoTurnOffSecondsDelay": 0,
+    "CloseAngle": 0.0,
+    "ConditionStatus": [],
+    "ContextMenuTip": "turn_on",
+    "CustomProgressCurve": {
+     "m_Curve": [
+      {
+       "inSlope": 0.0,
+       "inWeight": 0.0,
+       "outSlope": 0.0,
+       "outWeight": 0.0,
+       "time": 0.0,
+       "value": 0.0,
+       "weightedMode": 0
+      },
+      {
+       "inSlope": 0.0,
+       "inWeight": 0.0,
+       "outSlope": 0.0,
+       "outWeight": 0.0,
+       "time": 1.0,
+       "value": 1.0,
+       "weightedMode": 0
+      }
+     ],
+     "m_PostInfinity": 2,
+     "m_PreInfinity": 2,
+     "m_RotationOrder": 4
+    },
+    "Delay": 0.0,
+    "DontAnimateRotation": 1,
+    "Door": null,
+    "DoorAxis": 2,
+    "DoorForward": 2,
+    "DoorKeyOpenInteraction": 29,
+    "ExfiltrationPoint": null,
+    "ExtractionZoneTip": "",
+    "HasSkillRequirement": 0,
+    "Id": "switch_Lighthouse_DesignStuff_00004",
+    "Interaction": 0,
+    "InteractionDirection": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "InteractionDot": 0.0,
+    "KeyId": "",
+    "Lamps": [],
+    "LockHandle": null,
+    "NextSwitches": [],
+    "NoInteractionsAllowed": 0,
+    "Obstacle": null,
+    "OpenAngle": 60.0,
+    "OpenPosition": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "OpenSound": [],
+    "Operatable": 1,
+    "PreviousSwitch": null,
+    "ShutPosition": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "ShutShift": 0.0,
+    "ShutSound": [],
+    "SkillMinLevelRequirement": 0,
+    "SkillRequirement": 0,
+    "Snap": 15,
+    "SqueakSound": [],
+    "TargetStatus": 0,
+    "TriggersMap": [
+     {
+      "State": 4,
+      "TriggerId": "radio_play_01"
+     }
+    ],
+    "_currentAngle": 0.0,
+    "_doorState": 2,
+    "_forceLocalInteraction": 0,
+    "_handle": null,
+    "_keepRotation": 0,
+    "_mboitRenderers": [],
+    "_openSoundRolloff": 35,
+    "_shutSoundRolloff": 50,
+    "_squeakSoundRolloff": 35,
+    "interactPosition1": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "interactPosition2": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "interactWithoutAnimation": 1,
+    "specificInteractionContext": 0,
+    "viewTarget1": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    }
+   }
+  },
+  {
+   "scene": "Lighthouse_DesignStuff",
+   "path": "SBG_DesignStuff~0/OO~0/INTERACTIVE_RADIO~0/Radio_27~0/INTERACTIVE_Radio (2)~0/Switcher~0",
+   "type": "EFT.Interactive.Switch",
+   "enabled": true,
+   "source": {
+    "file": "level189",
+    "pid": 130119,
+    "sha256": "b0a95135905b9023f98e94c59b4dbf61cddc5111ff185ee662dec019d8d95d14",
+    "method": "validated_target_projection"
+   },
+   "fields": {
+    "AutoTurnOff": 0,
+    "AutoTurnOffSecondsDelay": 0,
+    "CloseAngle": 0.0,
+    "ConditionStatus": [],
+    "ContextMenuTip": "turn_on",
+    "CustomProgressCurve": {
+     "m_Curve": [
+      {
+       "inSlope": 0.0,
+       "inWeight": 0.0,
+       "outSlope": 0.0,
+       "outWeight": 0.0,
+       "time": 0.0,
+       "value": 0.0,
+       "weightedMode": 0
+      },
+      {
+       "inSlope": 0.0,
+       "inWeight": 0.0,
+       "outSlope": 0.0,
+       "outWeight": 0.0,
+       "time": 1.0,
+       "value": 1.0,
+       "weightedMode": 0
+      }
+     ],
+     "m_PostInfinity": 2,
+     "m_PreInfinity": 2,
+     "m_RotationOrder": 4
+    },
+    "Delay": 0.0,
+    "DontAnimateRotation": 1,
+    "Door": null,
+    "DoorAxis": 2,
+    "DoorForward": 2,
+    "DoorKeyOpenInteraction": 29,
+    "ExfiltrationPoint": null,
+    "ExtractionZoneTip": "",
+    "HasSkillRequirement": 0,
+    "Id": "switch_Lighthouse_DesignStuff_00003",
+    "Interaction": 0,
+    "InteractionDirection": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "InteractionDot": 0.0,
+    "KeyId": "",
+    "Lamps": [],
+    "LockHandle": null,
+    "NextSwitches": [],
+    "NoInteractionsAllowed": 0,
+    "Obstacle": null,
+    "OpenAngle": 60.0,
+    "OpenPosition": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "OpenSound": [],
+    "Operatable": 1,
+    "PreviousSwitch": null,
+    "ShutPosition": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "ShutShift": 0.0,
+    "ShutSound": [],
+    "SkillMinLevelRequirement": 0,
+    "SkillRequirement": 0,
+    "Snap": 15,
+    "SqueakSound": [],
+    "TargetStatus": 0,
+    "TriggersMap": [
+     {
+      "State": 4,
+      "TriggerId": "radio_play_27"
+     }
+    ],
+    "_currentAngle": 0.0,
+    "_doorState": 2,
+    "_forceLocalInteraction": 0,
+    "_handle": null,
+    "_keepRotation": 0,
+    "_mboitRenderers": [],
+    "_openSoundRolloff": 35,
+    "_shutSoundRolloff": 50,
+    "_squeakSoundRolloff": 35,
+    "interactPosition1": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "interactPosition2": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "interactWithoutAnimation": 1,
+    "specificInteractionContext": 0,
+    "viewTarget1": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    }
+   }
+  },
+  {
+   "scene": "Lighthouse_DesignStuff",
+   "path": "SBG_DesignStuff~0/OO~0/INTERACTIVE_RADIO~0/Radio_7~0/INTERACTIVE_Radio~0/Switcher~0",
+   "type": "EFT.Interactive.Switch",
+   "enabled": true,
+   "source": {
+    "file": "level189",
+    "pid": 130120,
+    "sha256": "e58b5633c934afe53e7cc2f27eede802696f024f62de2dd3df71eed4afa5eb6e",
+    "method": "validated_target_projection"
+   },
+   "fields": {
+    "AutoTurnOff": 0,
+    "AutoTurnOffSecondsDelay": 0,
+    "CloseAngle": 0.0,
+    "ConditionStatus": [],
+    "ContextMenuTip": "turn_on",
+    "CustomProgressCurve": {
+     "m_Curve": [
+      {
+       "inSlope": 0.0,
+       "inWeight": 0.0,
+       "outSlope": 0.0,
+       "outWeight": 0.0,
+       "time": 0.0,
+       "value": 0.0,
+       "weightedMode": 0
+      },
+      {
+       "inSlope": 0.0,
+       "inWeight": 0.0,
+       "outSlope": 0.0,
+       "outWeight": 0.0,
+       "time": 1.0,
+       "value": 1.0,
+       "weightedMode": 0
+      }
+     ],
+     "m_PostInfinity": 2,
+     "m_PreInfinity": 2,
+     "m_RotationOrder": 4
+    },
+    "Delay": 0.0,
+    "DontAnimateRotation": 1,
+    "Door": null,
+    "DoorAxis": 2,
+    "DoorForward": 2,
+    "DoorKeyOpenInteraction": 29,
+    "ExfiltrationPoint": null,
+    "ExtractionZoneTip": "",
+    "HasSkillRequirement": 0,
+    "Id": "radio_sound_07",
+    "Interaction": 0,
+    "InteractionDirection": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "InteractionDot": 0.0,
+    "KeyId": "",
+    "Lamps": [],
+    "LockHandle": null,
+    "NextSwitches": [],
+    "NoInteractionsAllowed": 0,
+    "Obstacle": null,
+    "OpenAngle": 60.0,
+    "OpenPosition": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "OpenSound": [],
+    "Operatable": 1,
+    "PreviousSwitch": null,
+    "ShutPosition": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "ShutShift": 0.0,
+    "ShutSound": [],
+    "SkillMinLevelRequirement": 0,
+    "SkillRequirement": 0,
+    "Snap": 15,
+    "SqueakSound": [],
+    "TargetStatus": 0,
+    "TriggersMap": [
+     {
+      "State": 4,
+      "TriggerId": "radio_play_07"
+     }
+    ],
+    "_currentAngle": 0.0,
+    "_doorState": 2,
+    "_forceLocalInteraction": 0,
+    "_handle": null,
+    "_keepRotation": 0,
+    "_mboitRenderers": [],
+    "_openSoundRolloff": 35,
+    "_shutSoundRolloff": 50,
+    "_squeakSoundRolloff": 35,
+    "interactPosition1": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "interactPosition2": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "interactWithoutAnimation": 1,
+    "specificInteractionContext": 0,
+    "viewTarget1": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    }
+   }
+  },
+  {
+   "scene": "Lighthouse_DesignStuff",
+   "path": "SBG_DesignStuff~0/OO~0/INTERACTIVE_RADIO~0/Radio_20~0/INTERACTIVE_Radio~0/Switcher~0",
+   "type": "EFT.Interactive.Switch",
+   "enabled": true,
+   "source": {
+    "file": "level189",
+    "pid": 130121,
+    "sha256": "3d008d97ffd613aacfc823ef5618f41966bd0e266a8d1d17e3c973d9039bf7fb",
+    "method": "validated_target_projection"
+   },
+   "fields": {
+    "AutoTurnOff": 0,
+    "AutoTurnOffSecondsDelay": 0,
+    "CloseAngle": 0.0,
+    "ConditionStatus": [],
+    "ContextMenuTip": "turn_on",
+    "CustomProgressCurve": {
+     "m_Curve": [
+      {
+       "inSlope": 0.0,
+       "inWeight": 0.0,
+       "outSlope": 0.0,
+       "outWeight": 0.0,
+       "time": 0.0,
+       "value": 0.0,
+       "weightedMode": 0
+      },
+      {
+       "inSlope": 0.0,
+       "inWeight": 0.0,
+       "outSlope": 0.0,
+       "outWeight": 0.0,
+       "time": 1.0,
+       "value": 1.0,
+       "weightedMode": 0
+      }
+     ],
+     "m_PostInfinity": 2,
+     "m_PreInfinity": 2,
+     "m_RotationOrder": 4
+    },
+    "Delay": 0.0,
+    "DontAnimateRotation": 1,
+    "Door": null,
+    "DoorAxis": 2,
+    "DoorForward": 2,
+    "DoorKeyOpenInteraction": 29,
+    "ExfiltrationPoint": null,
+    "ExtractionZoneTip": "",
+    "HasSkillRequirement": 0,
+    "Id": "switch_Lighthouse_DesignStuff_00001",
+    "Interaction": 0,
+    "InteractionDirection": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "InteractionDot": 0.0,
+    "KeyId": "",
+    "Lamps": [],
+    "LockHandle": null,
+    "NextSwitches": [],
+    "NoInteractionsAllowed": 0,
+    "Obstacle": null,
+    "OpenAngle": 60.0,
+    "OpenPosition": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "OpenSound": [],
+    "Operatable": 1,
+    "PreviousSwitch": null,
+    "ShutPosition": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "ShutShift": 0.0,
+    "ShutSound": [],
+    "SkillMinLevelRequirement": 0,
+    "SkillRequirement": 0,
+    "Snap": 15,
+    "SqueakSound": [],
+    "TargetStatus": 0,
+    "TriggersMap": [
+     {
+      "State": 4,
+      "TriggerId": "radio_play_20"
+     }
+    ],
+    "_currentAngle": 0.0,
+    "_doorState": 2,
+    "_forceLocalInteraction": 0,
+    "_handle": null,
+    "_keepRotation": 0,
+    "_mboitRenderers": [],
+    "_openSoundRolloff": 35,
+    "_shutSoundRolloff": 50,
+    "_squeakSoundRolloff": 35,
+    "interactPosition1": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "interactPosition2": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "interactWithoutAnimation": 1,
+    "specificInteractionContext": 0,
+    "viewTarget1": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    }
+   }
+  },
+  {
+   "scene": "Lighthouse_DesignStuff",
+   "path": "SBG_DesignStuff~0/OO~0/INTERACTIVE_RADIO~0/Radio_23~0/INTERACTIVE_Radio~0/Switcher~0",
+   "type": "EFT.Interactive.Switch",
+   "enabled": true,
+   "source": {
+    "file": "level189",
+    "pid": 130122,
+    "sha256": "f49eae66d27f9e2820f52e9554de251462ab7cb1bc2ae841fca0874bb9543845",
+    "method": "validated_target_projection"
+   },
+   "fields": {
+    "AutoTurnOff": 0,
+    "AutoTurnOffSecondsDelay": 0,
+    "CloseAngle": 0.0,
+    "ConditionStatus": [],
+    "ContextMenuTip": "turn_on",
+    "CustomProgressCurve": {
+     "m_Curve": [
+      {
+       "inSlope": 0.0,
+       "inWeight": 0.0,
+       "outSlope": 0.0,
+       "outWeight": 0.0,
+       "time": 0.0,
+       "value": 0.0,
+       "weightedMode": 0
+      },
+      {
+       "inSlope": 0.0,
+       "inWeight": 0.0,
+       "outSlope": 0.0,
+       "outWeight": 0.0,
+       "time": 1.0,
+       "value": 1.0,
+       "weightedMode": 0
+      }
+     ],
+     "m_PostInfinity": 2,
+     "m_PreInfinity": 2,
+     "m_RotationOrder": 4
+    },
+    "Delay": 0.0,
+    "DontAnimateRotation": 1,
+    "Door": null,
+    "DoorAxis": 2,
+    "DoorForward": 2,
+    "DoorKeyOpenInteraction": 29,
+    "ExfiltrationPoint": null,
+    "ExtractionZoneTip": "",
+    "HasSkillRequirement": 0,
+    "Id": "switch_Lighthouse_DesignStuff_00002",
+    "Interaction": 0,
+    "InteractionDirection": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "InteractionDot": 0.0,
+    "KeyId": "",
+    "Lamps": [],
+    "LockHandle": null,
+    "NextSwitches": [],
+    "NoInteractionsAllowed": 0,
+    "Obstacle": null,
+    "OpenAngle": 60.0,
+    "OpenPosition": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "OpenSound": [],
+    "Operatable": 1,
+    "PreviousSwitch": null,
+    "ShutPosition": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "ShutShift": 0.0,
+    "ShutSound": [],
+    "SkillMinLevelRequirement": 0,
+    "SkillRequirement": 0,
+    "Snap": 15,
+    "SqueakSound": [],
+    "TargetStatus": 0,
+    "TriggersMap": [
+     {
+      "State": 4,
+      "TriggerId": "radio_play_23"
+     }
+    ],
+    "_currentAngle": 0.0,
+    "_doorState": 2,
+    "_forceLocalInteraction": 0,
+    "_handle": null,
+    "_keepRotation": 0,
+    "_mboitRenderers": [],
+    "_openSoundRolloff": 35,
+    "_shutSoundRolloff": 50,
+    "_squeakSoundRolloff": 35,
+    "interactPosition1": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "interactPosition2": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "interactWithoutAnimation": 1,
+    "specificInteractionContext": 0,
+    "viewTarget1": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    }
+   }
+  },
+  {
+   "scene": "Lighthouse_DesignStuff",
+   "path": "SBG_DesignStuff~0/OO~0/INTERACTIVE_RADIO~0/Radio_14~0/INTERACTIVE_Radio~0/Switcher~0",
+   "type": "EFT.Interactive.Switch",
+   "enabled": true,
+   "source": {
+    "file": "level189",
+    "pid": 130123,
+    "sha256": "074afa5609f12e85f6663b2ffcd572683509e1fde28dd018dc8ed50aea4431c1",
+    "method": "validated_target_projection"
+   },
+   "fields": {
+    "AutoTurnOff": 0,
+    "AutoTurnOffSecondsDelay": 0,
+    "CloseAngle": 0.0,
+    "ConditionStatus": [],
+    "ContextMenuTip": "turn_on",
+    "CustomProgressCurve": {
+     "m_Curve": [
+      {
+       "inSlope": 0.0,
+       "inWeight": 0.0,
+       "outSlope": 0.0,
+       "outWeight": 0.0,
+       "time": 0.0,
+       "value": 0.0,
+       "weightedMode": 0
+      },
+      {
+       "inSlope": 0.0,
+       "inWeight": 0.0,
+       "outSlope": 0.0,
+       "outWeight": 0.0,
+       "time": 1.0,
+       "value": 1.0,
+       "weightedMode": 0
+      }
+     ],
+     "m_PostInfinity": 2,
+     "m_PreInfinity": 2,
+     "m_RotationOrder": 4
+    },
+    "Delay": 0.0,
+    "DontAnimateRotation": 1,
+    "Door": null,
+    "DoorAxis": 2,
+    "DoorForward": 2,
+    "DoorKeyOpenInteraction": 29,
+    "ExfiltrationPoint": null,
+    "ExtractionZoneTip": "",
+    "HasSkillRequirement": 0,
+    "Id": "switch_Lighthouse_DesignStuff_00000",
+    "Interaction": 0,
+    "InteractionDirection": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "InteractionDot": 0.0,
+    "KeyId": "",
+    "Lamps": [],
+    "LockHandle": null,
+    "NextSwitches": [],
+    "NoInteractionsAllowed": 0,
+    "Obstacle": null,
+    "OpenAngle": 60.0,
+    "OpenPosition": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "OpenSound": [],
+    "Operatable": 1,
+    "PreviousSwitch": null,
+    "ShutPosition": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "ShutShift": 0.0,
+    "ShutSound": [],
+    "SkillMinLevelRequirement": 0,
+    "SkillRequirement": 0,
+    "Snap": 15,
+    "SqueakSound": [],
+    "TargetStatus": 0,
+    "TriggersMap": [
+     {
+      "State": 4,
+      "TriggerId": "radio_play_14"
+     }
+    ],
+    "_currentAngle": 0.0,
+    "_doorState": 2,
+    "_forceLocalInteraction": 0,
+    "_handle": null,
+    "_keepRotation": 0,
+    "_mboitRenderers": [],
+    "_openSoundRolloff": 35,
+    "_shutSoundRolloff": 50,
+    "_squeakSoundRolloff": 35,
+    "interactPosition1": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "interactPosition2": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "interactWithoutAnimation": 1,
+    "specificInteractionContext": 0,
+    "viewTarget1": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    }
+   }
+  },
+  {
+   "scene": "Lighthouse_DesignStuff",
+   "path": "SBG_DesignStuff~0/OO~0/INTERACTIVE_RADIO~0/Radio_2~0/INTERACTIVE_Radio~0/Switcher~0",
+   "type": "EFT.Interactive.Switch",
+   "enabled": true,
+   "source": {
+    "file": "level189",
+    "pid": 130124,
+    "sha256": "d35b38f85cfe0d8ba1445b6bfb9d9bc28e02005d5b418e5efbce68d814e458ae",
+    "method": "validated_target_projection"
+   },
+   "fields": {
+    "AutoTurnOff": 0,
+    "AutoTurnOffSecondsDelay": 0,
+    "CloseAngle": 0.0,
+    "ConditionStatus": [],
+    "ContextMenuTip": "turn_on",
+    "CustomProgressCurve": {
+     "m_Curve": [
+      {
+       "inSlope": 0.0,
+       "inWeight": 0.0,
+       "outSlope": 0.0,
+       "outWeight": 0.0,
+       "time": 0.0,
+       "value": 0.0,
+       "weightedMode": 0
+      },
+      {
+       "inSlope": 0.0,
+       "inWeight": 0.0,
+       "outSlope": 0.0,
+       "outWeight": 0.0,
+       "time": 1.0,
+       "value": 1.0,
+       "weightedMode": 0
+      }
+     ],
+     "m_PostInfinity": 2,
+     "m_PreInfinity": 2,
+     "m_RotationOrder": 4
+    },
+    "Delay": 0.0,
+    "DontAnimateRotation": 1,
+    "Door": null,
+    "DoorAxis": 2,
+    "DoorForward": 2,
+    "DoorKeyOpenInteraction": 29,
+    "ExfiltrationPoint": null,
+    "ExtractionZoneTip": "",
+    "HasSkillRequirement": 0,
+    "Id": "radio_sound_01",
+    "Interaction": 0,
+    "InteractionDirection": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "InteractionDot": 0.0,
+    "KeyId": "",
+    "Lamps": [],
+    "LockHandle": null,
+    "NextSwitches": [],
+    "NoInteractionsAllowed": 0,
+    "Obstacle": null,
+    "OpenAngle": 60.0,
+    "OpenPosition": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "OpenSound": [],
+    "Operatable": 1,
+    "PreviousSwitch": null,
+    "ShutPosition": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "ShutShift": 0.0,
+    "ShutSound": [],
+    "SkillMinLevelRequirement": 0,
+    "SkillRequirement": 0,
+    "Snap": 15,
+    "SqueakSound": [],
+    "TargetStatus": 0,
+    "TriggersMap": [
+     {
+      "State": 4,
+      "TriggerId": "radio_play_02"
+     }
+    ],
+    "_currentAngle": 0.0,
+    "_doorState": 2,
+    "_forceLocalInteraction": 0,
+    "_handle": null,
+    "_keepRotation": 0,
+    "_mboitRenderers": [],
+    "_openSoundRolloff": 35,
+    "_shutSoundRolloff": 50,
+    "_squeakSoundRolloff": 35,
+    "interactPosition1": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "interactPosition2": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "interactWithoutAnimation": 1,
+    "specificInteractionContext": 0,
+    "viewTarget1": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    }
+   }
+  },
+  {
+   "scene": "Lighthouse_DesignMain",
+   "path": "LighthouseGatewayZone~0/OuterSwitcher~0",
+   "type": "EFT.Interactive.BufferGateSwitcher",
+   "enabled": true,
+   "source": {
+    "file": "level524",
+    "pid": 7324,
+    "sha256": "caf0f5dd0d30d70576e5e99f21c26d7aa134a62cf418bdeb845136efc7961724",
+    "method": "validated_target_projection"
+   },
+   "fields": {
+    "AutoTurnOff": 0,
+    "AutoTurnOffSecondsDelay": 0,
+    "CloseAngle": 90.0,
+    "ConditionStatus": [],
+    "ContextMenuTip": "",
+    "CustomProgressCurve": {
+     "m_Curve": [
+      {
+       "inSlope": 0.0,
+       "inWeight": 0.3333333432674408,
+       "outSlope": 0.0,
+       "outWeight": 0.3333333432674408,
+       "time": 0.0,
+       "value": 0.0,
+       "weightedMode": 0
+      },
+      {
+       "inSlope": 0.0,
+       "inWeight": 0.3333333432674408,
+       "outSlope": 0.0,
+       "outWeight": 0.3333333432674408,
+       "time": 0.09999999403953552,
+       "value": 0.9900016784667969,
+       "weightedMode": 0
+      }
+     ],
+     "m_PostInfinity": 2,
+     "m_PreInfinity": 2,
+     "m_RotationOrder": 4
+    },
+    "Delay": 0.0,
+    "DontAnimateRotation": 0,
+    "Door": null,
+    "DoorAxis": 1,
+    "DoorForward": 2,
+    "DoorKeyOpenInteraction": 29,
+    "ExfiltrationPoint": null,
+    "ExtractionZoneTip": "",
+    "HasSkillRequirement": 0,
+    "Id": "outside_buffer_trigger",
+    "Interaction": 0,
+    "InteractionDirection": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "InteractionDot": 0.0,
+    "KeyId": "",
+    "Lamps": [],
+    "LockHandle": null,
+    "NextSwitches": [],
+    "NoInteractionsAllowed": 0,
+    "Obstacle": null,
+    "OpenAngle": 90.0,
+    "OpenPosition": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "OpenSound": [],
+    "Operatable": 1,
+    "PreviousSwitch": null,
+    "ShutPosition": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "ShutShift": 0.0,
+    "ShutSound": [],
+    "SkillMinLevelRequirement": 0,
+    "SkillRequirement": 0,
+    "Snap": 15,
+    "SqueakSound": [],
+    "TargetStatus": 1,
+    "TriggersMap": [],
+    "_currentAngle": 90.0,
+    "_doorState": 2,
+    "_forceLocalInteraction": 0,
+    "_handle": null,
+    "_isOpeningEntranceGates": 1,
+    "_keepRotation": 0,
+    "_mboitRenderers": [],
+    "_openSoundRolloff": 35,
+    "_rejectedInteractionSound": {
+     "$asset": "keeper/switch"
+    },
+    "_shutSoundRolloff": 50,
+    "_squeakSoundRolloff": 35,
+    "_successfulInteractionSound": {
+     "$asset": "keeper/switch"
+    },
+    "interactPosition1": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "interactPosition2": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "interactWithoutAnimation": 0,
+    "specificInteractionContext": 0,
+    "viewTarget1": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    }
+   }
+  },
+  {
+   "scene": "Lighthouse_DesignMain",
+   "path": "LighthouseGatewayZone~0/BufferInnerZone~0/LighthouseKeeperZone~0/EnterZoneCutsceneTrigger~0",
+   "type": "Cutscene.InteractiveObjectCutsceneTrigger",
+   "enabled": true,
+   "source": {
+    "file": "level524",
+    "pid": 7864,
+    "sha256": null,
+    "method": "strict_target_layout"
+   },
+   "fields": {
+    "_callServerTeleportOnEnd": 0,
+    "_cutsceneEndPlayerPosition": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "_cutsceneID": 0,
+    "_needToProneAtStart": 0,
+    "_startPlayerPosLevel": 0.0,
+    "_startPosition": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "_startViewDirection": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "_timelineAsset": {
+     "$asset": "keeper/enter"
+    },
+    "condition": {
+     "nextObjectState": 8,
+     "prevObjectState": 2
+    },
+    "fakePlayerSteps": {
+     "$component": {
+      "path": "LighthouseGatewayZone~0/BufferInnerZone~0/LighthouseKeeperZone~0/EnterZoneCutsceneTrigger~0",
+      "type": "Cutscene.CutsceneFakePlayerSteps"
+     }
+    },
+    "interactiveObject": {
+     "$component": {
+      "path": "LighthouseGatewayZone~0/BufferInnerZone~0/EnterKeeperZoneDoor~0/door_hospital_old_210-100_door~0",
+      "type": "EFT.Interactive.Door"
+     }
+    }
+   }
+  },
+  {
+   "scene": "Lighthouse_DesignMain",
+   "path": "LighthouseGatewayZone~0/BufferInnerZone~0/LighthouseKeeperZone~0/ExitZoneCutsceneTrigger~0",
+   "type": "Cutscene.LighthouseKeeperExitCutsceneTrigger",
+   "enabled": true,
+   "source": {
+    "file": "level524",
+    "pid": 8165,
+    "sha256": null,
+    "method": "strict_target_layout"
+   },
+   "fields": {
+    "_callServerTeleportOnEnd": 1,
+    "_cutsceneEndPlayerPosition": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "_cutsceneID": 1,
+    "_needToProneAtStart": 0,
+    "_startPlayerPosLevel": 0.0,
+    "_startPosition": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "_startViewDirection": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "_timelineAsset": {
+     "$asset": "keeper/exit"
+    },
+    "fakePlayerSteps": {
+     "$component": {
+      "path": "LighthouseGatewayZone~0/BufferInnerZone~0/LighthouseKeeperZone~0/ExitZoneCutsceneTrigger~0",
+      "type": "Cutscene.CutsceneFakePlayerSteps"
+     }
+    }
+   }
+  },
+  {
+   "scene": "Lighthouse_DesignMain",
+   "path": "LighthouseGatewayZone~0/InnerSwitcher~0",
+   "type": "EFT.Interactive.BufferGateSwitcher",
+   "enabled": true,
+   "source": {
+    "file": "level524",
+    "pid": 8206,
+    "sha256": "bd64e8c0903b845a568bdf80087070f0b7175abe7ef5465ca0ab0117abaaaf2d",
+    "method": "validated_target_projection"
+   },
+   "fields": {
+    "AutoTurnOff": 0,
+    "AutoTurnOffSecondsDelay": 0,
+    "CloseAngle": -90.0,
+    "ConditionStatus": [],
+    "ContextMenuTip": "",
+    "CustomProgressCurve": {
+     "m_Curve": [
+      {
+       "inSlope": 0.0,
+       "inWeight": 0.3333333432674408,
+       "outSlope": 0.0,
+       "outWeight": 0.3333333432674408,
+       "time": 0.0,
+       "value": 0.0,
+       "weightedMode": 0
+      },
+      {
+       "inSlope": 0.0,
+       "inWeight": 0.3333333432674408,
+       "outSlope": 0.0,
+       "outWeight": 0.3333333432674408,
+       "time": 0.09999999403953552,
+       "value": 0.9900016784667969,
+       "weightedMode": 0
+      }
+     ],
+     "m_PostInfinity": 2,
+     "m_PreInfinity": 2,
+     "m_RotationOrder": 4
+    },
+    "Delay": 0.0,
+    "DontAnimateRotation": 0,
+    "Door": null,
+    "DoorAxis": 1,
+    "DoorForward": 2,
+    "DoorKeyOpenInteraction": 29,
+    "ExfiltrationPoint": null,
+    "ExtractionZoneTip": "",
+    "HasSkillRequirement": 0,
+    "Id": "inner_buffer_trigger",
+    "Interaction": 0,
+    "InteractionDirection": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "InteractionDot": 0.0,
+    "KeyId": "",
+    "Lamps": [],
+    "LockHandle": null,
+    "NextSwitches": [],
+    "NoInteractionsAllowed": 0,
+    "Obstacle": null,
+    "OpenAngle": -90.0,
+    "OpenPosition": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "OpenSound": [],
+    "Operatable": 1,
+    "PreviousSwitch": null,
+    "ShutPosition": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "ShutShift": 0.0,
+    "ShutSound": [],
+    "SkillMinLevelRequirement": 0,
+    "SkillRequirement": 0,
+    "Snap": 15,
+    "SqueakSound": [],
+    "TargetStatus": 1,
+    "TriggersMap": [],
+    "_currentAngle": -90.0,
+    "_doorState": 2,
+    "_forceLocalInteraction": 0,
+    "_handle": null,
+    "_isOpeningEntranceGates": 0,
+    "_keepRotation": 0,
+    "_mboitRenderers": [],
+    "_openSoundRolloff": 35,
+    "_rejectedInteractionSound": {
+     "$asset": "keeper/switch"
+    },
+    "_shutSoundRolloff": 50,
+    "_squeakSoundRolloff": 35,
+    "_successfulInteractionSound": {
+     "$asset": "keeper/switch"
+    },
+    "interactPosition1": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "interactPosition2": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "interactWithoutAnimation": 1,
+    "specificInteractionContext": 0,
+    "viewTarget1": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    }
+   }
+  },
+  {
+   "scene": "Lighthouse_DesignMain",
+   "path": "LighthouseGatewayZone~0/GatesParent~0/BufferEnteranceDoor~0/railing_door 1~0",
+   "type": "EFT.Interactive.BufferGates",
+   "enabled": true,
+   "source": {
+    "file": "level524",
+    "pid": 8212,
+    "sha256": "15b9fba47a510a1d8dbee0ccae46e502ac9afb08037d5106f8999469503710eb",
+    "method": "validated_target_projection"
+   },
+   "fields": {
+    "AutoTurnOff": 0,
+    "AutoTurnOffSecondsDelay": 0,
+    "CloseAngle": 0.0,
+    "ConditionStatus": [],
+    "ContextMenuTip": "",
+    "CustomProgressCurve": {
+     "m_Curve": [
+      {
+       "inSlope": 0.2863408029079437,
+       "inWeight": 0.3333333432674408,
+       "outSlope": 0.2863408029079437,
+       "outWeight": 0.3333333432674408,
+       "time": -0.002162933349609375,
+       "value": 0.0,
+       "weightedMode": 0
+      },
+      {
+       "inSlope": 0.2863408029079437,
+       "inWeight": 0.3333333432674408,
+       "outSlope": 0.2863408029079437,
+       "outWeight": 0.0,
+       "time": 3.5069580078125,
+       "value": 1.0048044919967651,
+       "weightedMode": 0
+      }
+     ],
+     "m_PostInfinity": 2,
+     "m_PreInfinity": 2,
+     "m_RotationOrder": 4
+    },
+    "Delay": 0.0,
+    "DontAnimateRotation": 1,
+    "Door": null,
+    "DoorAxis": 2,
+    "DoorForward": 2,
+    "DoorKeyOpenInteraction": 29,
+    "ExfiltrationPoint": null,
+    "ExtractionZoneTip": "",
+    "HasSkillRequirement": 0,
+    "Id": "switch_LighthouseGatewayZone_00000",
+    "Interaction": 0,
+    "InteractionDirection": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "InteractionDot": 0.0,
+    "KeyId": "",
+    "Lamps": [],
+    "LockHandle": null,
+    "NextSwitches": [],
+    "NoInteractionsAllowed": 0,
+    "Obstacle": null,
+    "OpenAngle": 0.0,
+    "OpenPosition": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 2.0
+    },
+    "OpenSound": [],
+    "Operatable": 1,
+    "PreviousSwitch": null,
+    "ShutPosition": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "ShutShift": 0.0,
+    "ShutSound": [],
+    "SkillMinLevelRequirement": 0,
+    "SkillRequirement": 0,
+    "Snap": 15,
+    "SqueakSound": [],
+    "TargetStatus": 0,
+    "TriggersMap": [],
+    "_currentAngle": 0.0,
+    "_curveValueOnStartAutoClosing": 0.8600000143051147,
+    "_doorState": 2,
+    "_forceLocalInteraction": 0,
+    "_gatesCloseMovementCurve": {
+     "m_Curve": [
+      {
+       "inSlope": 0.0,
+       "inWeight": 0.0,
+       "outSlope": 0.0,
+       "outWeight": 0.0,
+       "time": 0.0,
+       "value": 0.0,
+       "weightedMode": 0
+      },
+      {
+       "inSlope": 1.5019408464431763,
+       "inWeight": 0.06661105155944824,
+       "outSlope": 1.5019408464431763,
+       "outWeight": 0.0,
+       "time": 2.0,
+       "value": 1.0,
+       "weightedMode": 0
+      }
+     ],
+     "m_PostInfinity": 2,
+     "m_PreInfinity": 2,
+     "m_RotationOrder": 4
+    },
+    "_gatesCloseSound": {
+     "$asset": "keeper/gates_close"
+    },
+    "_gatesMovementCurve": {
+     "m_Curve": [
+      {
+       "inSlope": 0.0,
+       "inWeight": 0.3333333432674408,
+       "outSlope": 0.0,
+       "outWeight": 0.3333333432674408,
+       "time": 0.0,
+       "value": 0.0,
+       "weightedMode": 0
+      },
+      {
+       "inSlope": 0.0,
+       "inWeight": 0.3333333432674408,
+       "outSlope": 0.0,
+       "outWeight": 0.3333333432674408,
+       "time": 0.800000011920929,
+       "value": 0.9900000095367432,
+       "weightedMode": 0
+      },
+      {
+       "inSlope": 0.0013232097262516618,
+       "inWeight": 0.3333333432674408,
+       "outSlope": 0.0013232097262516618,
+       "outWeight": 0.3333333432674408,
+       "time": 1.2000000476837158,
+       "value": 1.0,
+       "weightedMode": 0
+      },
+      {
+       "inSlope": 0.0,
+       "inWeight": 0.0,
+       "outSlope": 0.0,
+       "outWeight": 0.0,
+       "time": 5.199999809265137,
+       "value": 1.0,
+       "weightedMode": 0
+      },
+      {
+       "inSlope": 0.0,
+       "inWeight": 0.0,
+       "outSlope": 0.0,
+       "outWeight": 0.0,
+       "time": 6.0,
+       "value": 0.0,
+       "weightedMode": 0
+      }
+     ],
+     "m_PostInfinity": 2,
+     "m_PreInfinity": 2,
+     "m_RotationOrder": 4
+    },
+    "_gatesOpenSound": {
+     "$asset": "keeper/gates_open"
+    },
+    "_handle": null,
+    "_keepRotation": 0,
+    "_mboitRenderers": [],
+    "_openSoundRolloff": 35,
+    "_shutSoundRolloff": 50,
+    "_squeakSoundRolloff": 35,
+    "gatePartsDisabler": {
+     "$component": {
+      "path": "LighthouseGatewayZone~0/GatesParent~0/BufferEnteranceDoor~0/railing_door 1~0",
+      "type": "GameObjectsToggleByDistance"
+     }
+    },
+    "interactPosition1": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "interactPosition2": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "interactWithoutAnimation": 0,
+    "specificInteractionContext": 0,
+    "viewTarget1": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    }
+   }
+  },
+  {
+   "scene": "Lighthouse_DesignMain",
+   "path": "LighthouseGatewayZone~0/BufferInnerZone~0/LighthouseKeeperZone~0/lightkeeper_test_prefab~0",
+   "type": "uLipSync.uLipSyncBakedDataPlayer",
+   "enabled": true,
+   "inactiveAdd": false,
+   "source": {
+    "file": "spt/level524",
+    "pid": 17250,
+    "sha256": "79d08e8455c6cbb10c3e9d2aae3cfea1946b06c74f0bef5eeb6d58695e092b86",
+    "method": "target_layout_from_spt_scene"
+   },
+   "fields": {
+    "audioSource": {
+     "$component": {
+      "path": "LighthouseGatewayZone~0/BufferInnerZone~0/LighthouseKeeperZone~0/lightkeeper_test_prefab~0/Root_Joint~0/Base HumanPelvis~0/Base HumanSpine1~0/Base HumanSpine2~0/Base HumanSpine3~0/Base HumanNeck~0/Base HumanHead~0/HeadAudioSource~0",
+      "type": "UnityEngine.AudioSource"
+     }
+    },
+    "bakedData": null,
+    "playOnAwake": 0,
+    "playAudioSource": 1,
+    "volume": 1.0,
+    "timeOffset": 0.012500000186264515,
+    "onLipSyncUpdate": {
+     "m_PersistentCalls": {
+      "m_Calls": [
+       {
+        "m_Target": {
+         "$component": {
+          "path": "LighthouseGatewayZone~0/BufferInnerZone~0/LighthouseKeeperZone~0/lightkeeper_test_prefab~0",
+          "type": "uLipSync.uLipSyncBlendShape"
+         }
+        },
+        "m_TargetAssemblyTypeName": "uLipSync.uLipSyncBlendShape, uLipSync.Runtime",
+        "m_MethodName": "OnLipSyncUpdate",
+        "m_Mode": 0,
+        "m_Arguments": {
+         "m_ObjectArgument": null,
+         "m_ObjectArgumentAssemblyTypeName": "UnityEngine.Object, UnityEngine",
+         "m_IntArgument": 0,
+         "m_FloatArgument": 0.0,
+         "m_StringArgument": "",
+         "m_BoolArgument": 0
+        },
+        "m_CallState": 2
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "scene": "Lighthouse_DesignMain",
+   "path": "LighthouseGatewayZone~0/BufferInnerZone~0/LighthouseKeeperZone~0/lightkeeper_test_prefab~0",
+   "type": "EFT.AnimationSequencePlayer.LipSyncDictionary",
+   "enabled": true,
+   "inactiveAdd": false,
+   "source": {
+    "file": "spt/level524",
+    "pid": 17258,
+    "sha256": "028f80f35e87c33668652235d1515bf2797af7d440124b71f53ee64a7feae4a6",
+    "method": "target_layout_from_spt_scene"
+   },
+   "fields": {
+    "entries": [
+     {
+      "key": "WhoAreYou1",
+      "value": {
+       "info": "\u041a\u0442\u043e \u044f \u0432 \u0434\u0430\u043d\u043d\u044b\u0439 \u043c\u043e\u043c\u0435\u043d\u0442 \u043d\u0435 \u0432\u0430\u0436\u043d\u043e.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/whoareyou_01"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "WhoAreYou2",
+      "value": {
+       "info": "\u042f \u0421\u043c\u043e\u0442\u0440\u0438\u0442\u0435\u043b\u044c, \u0432\u0441\u0435 \u0432\u0438\u0434\u044f\u0442 \u043c\u043e\u0439 \u0441\u0432\u0435\u0442.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/whoareyou_02"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "WhoAreYou3",
+      "value": {
+       "info": "\u0412\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u0438 \u043c\u0435\u043d\u044f\u0442\u044c \u043e\u043a\u0440\u0443\u0436\u0435\u043d\u0438\u0435 \u0438 \u0440\u0435\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u044c.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/whoareyou_03"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "WhoAreYou4",
+      "value": {
+       "info": "\u0412\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u0438 \u043c\u0435\u043d\u044f\u0442\u044c \u043e\u043a\u0440\u0443\u0436\u0435\u043d\u0438\u0435 \u0438 \u0440\u0435\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u044c.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/whoareyou_04"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "WhoAreYou5",
+      "value": {
+       "info": "\u0422\u044b \u0441\u0430\u043c \u0438\u0441\u043a\u0430\u043b \u0432\u0441\u0442\u0440\u0435\u0447\u0438 \u0441\u043e \u043c\u043d\u043e\u0439.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/whoareyou_05"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "WhoAreYou6",
+      "value": {
+       "info": "\u041f\u0440\u0438\u0431\u043b\u0438\u0436\u0435\u043d\u043d\u043e\u0441\u0442\u044c \u043a \u0442\u043e\u043c\u0443 \u0434\u043b\u044f \u043a\u043e\u0433\u043e \u043a\u043e\u043b\u043b\u0430\u043f\u0441 \u0435\u0441\u0442\u044c \u043d\u0430\u0447\u0430\u043b\u043e \u043d\u043e\u0432\u043e\u0433\u043e.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/whoareyou_06"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "WhoAreYou7",
+      "value": {
+       "info": "\u0422\u0430\u0440\u043a\u043e\u0432 \u0438 \u0435\u0441\u0442\u044c \u0442\u044b.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/whoareyou_07"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "WhoAreYou8",
+      "value": {
+       "info": "\u042d\u0442\u043e\u043c\u0443 \u043c\u0438\u0440\u0443 \u043a\u043e\u043d\u0435\u0446.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/whoareyou_08"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "WhoAreYou9",
+      "value": {
+       "info": "\u0422\u044b \u043d\u0435 \u0441\u043c\u043e\u0436\u0435\u0448\u044c \u0441\u0431\u0435\u0436\u0430\u0442\u044c \u0438\u0437 \u0422\u0430\u0440\u043a\u043e\u0432\u0430.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/whoareyou_09"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "WhoAreYou10",
+      "value": {
+       "info": "\u0422\u044b \u043d\u0438\u0447\u0435\u0433\u043e \u043d\u0435 \u043f\u043e\u043d\u044f\u043b, \u044d\u0442\u043e \u043d\u043e\u0440\u043c\u0430\u043b\u044c\u043d\u043e.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/whoareyou_10"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "WhoAreYou11",
+      "value": {
+       "info": "\u041d\u0430\u043c \u043f\u043e\u043a\u0430 \u0431\u043e\u043b\u044c\u0448\u0435 \u043d\u0435\u043e\u0447\u0435\u043c \u0433\u043e\u0432\u043e\u0440\u0438\u0442\u044c.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/whoareyou_11"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Farewell1",
+      "value": {
+       "info": "\u0414\u043e \u0441\u043a\u043e\u0440\u043e\u0433\u043e.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/commonfarewell_01"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Farewell2",
+      "value": {
+       "info": "\u0412\u0441\u0435\u0433\u043e \u0445\u043e\u0440\u043e\u0448\u0435\u0433\u043e.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/commonfarewell_02"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Farewell3",
+      "value": {
+       "info": "\u0412\u0441\u0435 \u043d\u0430 \u044d\u0442\u043e\u043c, \u0441\u0447\u0430\u0441\u0442\u043b\u0438\u0432\u043e.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/commonfarewell_03"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Farewell4",
+      "value": {
+       "info": "\u0423\u0434\u0430\u0447\u0438.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/commonfarewell_04"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Farewell5",
+      "value": {
+       "info": "\u042f \u043f\u043e\u043a\u0430 \u0435\u0449\u0435 \u0437\u0434\u0435\u0441\u044c, \u0437\u0430\u0445\u043e\u0434\u0438.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/commonfarewell_05"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Farewell6",
+      "value": {
+       "info": "\u0411\u0443\u0434\u0435\u0442 \u0432\u0440\u0435\u043c\u044f \u0437\u0430\u0445\u043e\u0434\u0438.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/commonfarewell_06"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Farewell7",
+      "value": {
+       "info": "\u0423\u0434\u0430\u0447\u0438, \u043d\u0435 \u043d\u0435\u0440\u0432\u0438\u0440\u0443\u0439 \u0437\u0440\u044f\u0447\u0435\u0433\u043e.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/commonfarewell_07"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Greetings1",
+      "value": {
+       "info": "\u041f\u0440\u0438\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044e.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/commongreetings_01"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Greetings2",
+      "value": {
+       "info": "\u0421\u043d\u043e\u0432\u0430 \u0442\u044b.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/commongreetings_02"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Greetings3",
+      "value": {
+       "info": "\u041d\u0430\u0434\u0435\u044e\u0441\u044c \u0447\u0442\u043e-\u0442\u043e \u0432\u0430\u0436\u043d\u043e\u0435.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/commongreetings_03"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Greetings4",
+      "value": {
+       "info": "\u0421\u043b\u0443\u0448\u0430\u044e.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/commongreetings_04"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Greetings5",
+      "value": {
+       "info": "\u0417\u043d\u0430\u043a\u043e\u043c\u043e\u0435 \u043b\u0438\u0446\u043e.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/commongreetings_05"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Greetings6",
+      "value": {
+       "info": "\u0427\u0442\u043e \u0445\u043e\u0442\u0435\u043b?",
+       "bakedData": {
+        "$asset": "keeper/lipsync/commongreetings_07"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Greetings7",
+      "value": {
+       "info": "\u0413\u043e\u0432\u043e\u0440\u0438, \u0440\u0430\u0437 \u043f\u0440\u0438\u0448\u0435\u043b.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/commongreetings_08"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Greetings8",
+      "value": {
+       "info": "\u041d\u0443 \u044f \u0432\u0438\u0436\u0443 \u0442\u044b \u0441\u043d\u043e\u0432\u0430 \u0437\u0434\u0435\u0441\u044c.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/commongreetings_09"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "TimeEnd1",
+      "value": {
+       "info": "\u0412\u0441\u0435, \u0432\u0440\u0435\u043c\u044f, \u043f\u043e\u043f\u0440\u043e\u0448\u0443 \u043d\u0430 \u0432\u044b\u0445\u043e\u0434.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/endoftimefarewell_01"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "TimeEnd2",
+      "value": {
+       "info": "\u0412\u0440\u0435\u043c\u044f \u043a\u043e\u043d\u0447\u0438\u043b\u043e\u0441\u044c, \u0441\u0447\u0430\u0441\u0442\u043b\u0438\u0432\u043e.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/endoftimefarewell_02"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "TimeEnd3",
+      "value": {
+       "info": "\u0422\u0432\u043e\u0435 \u0432\u0440\u0435\u043c\u044f \u0437\u0430\u043a\u043e\u043d\u0447\u0438\u043b\u043e\u0441\u044c.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/endoftimefarewell_03"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "TimeEnd4",
+      "value": {
+       "info": "\u041f\u043e\u043f\u0440\u043e\u0448\u0443 \u043d\u0430 \u0432\u044b\u0445\u043e\u0434, \u0432\u0440\u0435\u043c\u044f.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/endoftimefarewell_04"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "TimeEnd5",
+      "value": {
+       "info": "\u0412\u0440\u0435\u043c\u044f \u0441\u043e\u0432\u0447\u0435\u043c \u043d\u0435 \u0446\u0435\u043d\u0438\u0448\u044c, \u043d\u0430 \u0432\u044b\u0445\u043e\u0434.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/endoftimefarewell_05"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "TimeEnd6",
+      "value": {
+       "info": "\u041c\u044b \u0437\u0430\u043a\u043e\u043d\u0447\u0438\u043b\u0438, \u0432\u0440\u0435\u043c\u044f.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/endoftimefarewell_06"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Reward1",
+      "value": {
+       "info": "\u0421\u043c\u043e\u0442\u0440\u0438 \u0430\u043a\u043a\u0443\u0440\u0430\u0442\u043d\u0435\u0435 \u0441 \u044d\u0442\u0438\u043c.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/givereward_01"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Reward2",
+      "value": {
+       "info": "\u041d\u0438\u043a\u0430\u043a\u0438\u0445 \u0432\u043e\u0437\u0432\u0440\u0430\u0442\u043e\u0432.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/givereward_02"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Reward3",
+      "value": {
+       "info": "\u0410\u043a\u043a\u0443\u0440\u0430\u0442\u043d\u0435\u0435 \u043d\u0430 \u0432\u044b\u0445\u043e\u0434\u0435.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/givereward_03"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Reward4",
+      "value": {
+       "info": "\u0412\u0435\u0449\u0438 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u0440\u0435\u0434\u043a\u0438\u0435.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/givereward_04"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "NoQuest1",
+      "value": {
+       "info": "\u041d\u0435 \u0441\u0435\u0439\u0447\u0430\u0441, \u0432\u0441\u0435\u043c\u0443 \u0441\u0432\u043e\u0435 \u0432\u0440\u0435\u043c\u044f.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/noquestsreaction_01"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "NoQuest2",
+      "value": {
+       "info": "\u041c\u044b \u0442\u043e\u043b\u044c\u043a\u043e \u043d\u0430\u0447\u0430\u043b\u0438 \u043e\u0431\u0449\u0430\u0442\u044c\u0441\u044f, \u0432\u0441\u0435 \u0431\u0443\u0434\u0435\u0442.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/noquestsreaction_02"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "NoQuest3",
+      "value": {
+       "info": "\u041f\u0440\u043e\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u044e \u0432\u043e\u043f\u0440\u043e\u0441, \u043d\u0435 \u0442\u043e\u0440\u043e\u043f\u0438 \u0441\u043e\u0431\u044b\u0442\u0438\u044f.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/noquestsreaction_03"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "NoQuest4",
+      "value": {
+       "info": "\u0421\u043a\u043e\u0440\u043e \u0431\u0443\u0434\u0435\u0442, \u0434\u0430\u043c \u0437\u043d\u0430\u0442\u044c.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/noquestsreaction_04"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "CantReward1",
+      "value": {
+       "info": "\u041d\u0435 \u0443\u0432\u0435\u0440\u0435\u043d \u0447\u0442\u043e \u0442\u044b \u0433\u043e\u0442\u043e\u0432 \u043a \u044d\u0442\u043e\u043c\u0443 \u0441\u0435\u0439\u0447\u0430\u0441.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/playercantgetreward_01"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "PlayerKilled1",
+      "value": {
+       "info": "\u0417\u0440\u044f\u0447\u0438\u0439, \u0447\u0442\u043e \u0442\u0430\u043c \u0437\u0430 \u0441\u0442\u0440\u0435\u043b\u044c\u0431\u0430, \u0432\u0441\u0442\u0440\u0435\u0447\u0430 \u043e\u043a\u043e\u043d\u0447\u0435\u043d\u0430.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/playerwithaccesskilled_01"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "PlayerKilled2",
+      "value": {
+       "info": "\u0417\u0440\u044f\u0447\u0438\u0439, \u0440\u0435\u0448\u0438 \u0432\u043e\u043f\u0440\u043e\u0441 \u0447\u0442\u043e \u0437\u0430 \u0441\u0442\u0440\u0435\u043b\u044c\u0431\u0430, \u0438\u0434\u0438 \u043e\u0442\u0441\u044e\u0434\u0430.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/playerwithaccesskilled_02"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "PlayerKilled3",
+      "value": {
+       "info": "\u0417\u0440\u044f\u0447\u0438\u0439, \u043f\u0440\u0438\u0435\u043c, \u0440\u0430\u0437\u0431\u0435\u0440\u0438\u0441\u044c \u0447\u0442\u043e \u0442\u0430\u043c.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/playerwithaccesskilled_03"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Complete1",
+      "value": {
+       "info": "\u041e\u0442\u043b\u0438\u0447\u043d\u043e #1",
+       "bakedData": {
+        "$asset": "keeper/lipsync/questcompleted_01"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Complete2",
+      "value": {
+       "info": "\u041e\u0442\u043b\u0438\u0447\u043d\u043e #2",
+       "bakedData": {
+        "$asset": "keeper/lipsync/questcompleted_02"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Complete3",
+      "value": {
+       "info": "\u041f\u0440\u0438\u043d\u044f\u0442\u043e.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/questcompleted_03"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Available1",
+      "value": {
+       "info": "\u0415\u0441\u0442\u044c \u043f\u0430\u0440\u0443 \u0438\u043d\u0442\u0435\u0440\u0435\u0441\u043d\u044b\u0445 \u0432\u0435\u0449\u0435\u0439.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/questsavailable_01"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Available2",
+      "value": {
+       "info": "\u0415\u0441\u0442\u044c, \u0442\u043e\u043b\u044c\u043a\u043e \u043d\u0435 \u0442\u0440\u0430\u0442\u044c \u043c\u043e\u0435 \u0432\u0440\u0435\u043c\u044f \u0437\u0440\u044f.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/questsavailable_02"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Available3",
+      "value": {
+       "info": "\u0412\u0430\u0440\u0438\u0430\u043d\u0442\u044b \u0435\u0441\u0442\u044c.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/questsavailable_03"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "Available4",
+      "value": {
+       "info": "\u0412\u0441\u0435\u0433\u0434\u0430 \u0447\u0442\u043e-\u0442\u043e \u0435\u0441\u0442\u044c.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/questsavailable_04"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "TimeWarning1",
+      "value": {
+       "info": "\u0412\u0440\u0435\u043c\u044f \u0437\u0430\u043a\u0430\u043d\u0447\u0438\u0432\u0430\u0435\u0442\u0441\u044f.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/warningtimeending_01"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "TimeWarning2",
+      "value": {
+       "info": "\u041d\u0430\u0448\u0435 \u0432\u0440\u0435\u043c\u044f \u0437\u0430\u043a\u0430\u043d\u0447\u0438\u0432\u0430\u0435\u0442\u0441\u044f.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/warningtimeending_02"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "TimeWarning3",
+      "value": {
+       "info": "\u0421\u043c\u043e\u0442\u0440\u0438 \u043d\u0430 \u0447\u0430\u0441\u044b, \u0432\u0440\u0435\u043c\u044f.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/warningtimeending_03"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "TimeWarning4",
+      "value": {
+       "info": "\u0412\u0440\u0435\u043c\u044f, \u0432\u0440\u0435\u043c\u044f.",
+       "bakedData": {
+        "$asset": "keeper/lipsync/warningtimeending_04"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "ZryachiyKilled1",
+      "value": {
+       "info": "\u0417\u0440\u044f\u0447\u0438\u0439 \u043d\u0430 \u0441\u0432\u044f\u0437\u044c, \u0417\u0440\u044f\u0447\u0438\u0439!",
+       "bakedData": {
+        "$asset": "keeper/lipsync/zryachiykilled_01"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "ZryachiyKilled2",
+      "value": {
+       "info": "\u0417\u0440\u044f\u0447\u0438\u0439 \u0421\u043c\u043e\u0442\u0440\u0438\u0442\u0435\u043b\u044e, \u0417\u0440\u044f\u0447\u0438\u0439 \u043e\u0442\u0432\u0435\u0442\u044c!",
+       "bakedData": {
+        "$asset": "keeper/lipsync/zryachiykilled_02"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "ZryachiyKilled3",
+      "value": {
+       "info": "\u0417\u0440\u044f\u0447\u0438\u0439 \u0447\u0442\u043e \u0441 \u0442\u043e\u0431\u043e\u0439, \u043e\u0442\u0432\u0435\u0442\u044c!",
+       "bakedData": {
+        "$asset": "keeper/lipsync/zryachiykilled_03"
+       },
+       "volume": 1.0
+      }
+     },
+     {
+      "key": "FirstGreetings",
+      "value": {
+       "info": "\u042d\u0442\u043e \u0442\u044b? \u041d\u0443 \u0434\u0430, \u043a\u0442\u043e \u0436\u0435 \u0435\u0449\u0435. \u041f\u0440\u043e\u0448\u0435\u043b \u0432\u0441\u0435 \u0438\u0441\u043f\u044b\u0442\u0430\u043d\u0438\u044f?",
+       "bakedData": {
+        "$asset": "keeper/lipsync/keeper_first_greeting_01_curves"
+       },
+       "volume": 1.0
+      }
+     }
+    ]
+   }
+  }
+ ],
+ "links": [
+  {
+   "scene": "Lighthouse_DesignMain",
+   "path": "LighthouseGatewayZone~0",
+   "type": "EFT.BufferZone.BufferZoneContainer",
+   "field": "_gates",
+   "target": {
+    "$component": {
+     "path": "LighthouseGatewayZone~0/GatesParent~0/BufferEnteranceDoor~0/railing_door 1~0",
+     "type": "EFT.Interactive.BufferGates"
+    }
+   }
+  },
+  {
+   "scene": "Lighthouse_DesignMain",
+   "path": "LighthouseGatewayZone~0",
+   "type": "EFT.BufferZone.BufferZoneContainer",
+   "field": "_innerSwitcher",
+   "target": {
+    "$component": {
+     "path": "LighthouseGatewayZone~0/InnerSwitcher~0",
+     "type": "EFT.Interactive.BufferGateSwitcher"
+    }
+   }
+  },
+  {
+   "scene": "Lighthouse_DesignMain",
+   "path": "LighthouseGatewayZone~0",
+   "type": "EFT.BufferZone.BufferZoneContainer",
+   "field": "_outerSwitcher",
+   "target": {
+    "$component": {
+     "path": "LighthouseGatewayZone~0/OuterSwitcher~0",
+     "type": "EFT.Interactive.BufferGateSwitcher"
+    }
+   }
+  },
+  {
+   "scene": "Lighthouse_DesignMain",
+   "path": "LighthouseGatewayZone~0/BufferInnerZone~0/LighthouseKeeperZone~0",
+   "type": "EFT.LighthouseKeeperZone",
+   "field": "_bufferGates",
+   "target": {
+    "$component": {
+     "path": "LighthouseGatewayZone~0/GatesParent~0/BufferEnteranceDoor~0/railing_door 1~0",
+     "type": "EFT.Interactive.BufferGates"
+    }
+   }
+  },
+  {
+   "scene": "Lighthouse_DesignMain",
+   "path": "LighthouseGatewayZone~0/BufferInnerZone~0/LighthouseKeeperZone~0",
+   "type": "EFT.LighthouseKeeperZone",
+   "field": "_enterZoneTrigger",
+   "target": {
+    "$component": {
+     "path": "LighthouseGatewayZone~0/BufferInnerZone~0/LighthouseKeeperZone~0/EnterZoneCutsceneTrigger~0",
+     "type": "Cutscene.InteractiveObjectCutsceneTrigger"
+    }
+   }
+  },
+  {
+   "scene": "Lighthouse_DesignMain",
+   "path": "LighthouseGatewayZone~0/BufferInnerZone~0/LighthouseKeeperZone~0",
+   "type": "EFT.LighthouseKeeperZone",
+   "field": "_exitZoneTrigger",
+   "target": {
+    "$component": {
+     "path": "LighthouseGatewayZone~0/BufferInnerZone~0/LighthouseKeeperZone~0/ExitZoneCutsceneTrigger~0",
+     "type": "Cutscene.LighthouseKeeperExitCutsceneTrigger"
+    }
+   }
+  }
+ ],
+ "registerAs": "WorldInteractiveObjects",
+ "invoke": [
+  {
+   "scene": "Lighthouse_DesignMain",
+   "path": "LighthouseGatewayZone~0/BufferInnerZone~0/LighthouseKeeperZone~0/lightkeeper_test_prefab~0",
+   "type": "EFT.AnimationSequencePlayer.LipSyncDictionary",
+   "method": "InitializeDictionary"
+  },
+  {
+   "scene": "Lighthouse_DesignMain",
+   "path": "LighthouseGatewayZone~0/BufferInnerZone~0/LighthouseKeeperZone~0/lightkeeper_test_prefab~0",
+   "type": "EFT.AnimationSequencePlayer.SequenceReader",
+   "method": "Awake"
+  }
+ ]
+}

@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 namespace Manimal.Lighthouse.Client;
 
 [BepInPlugin(ModIdentity.Guid, ModIdentity.ClientName, ModIdentity.Version)]
+[BepInDependency("com.arys.unitytoolkit")]
 public sealed class Plugin : BaseUnityPlugin
 {
     internal static ManualLogSource Log = null!;
@@ -47,6 +48,8 @@ public sealed class Plugin : BaseUnityPlugin
         new Patches.PadlockAudio.PlaySoundPatch().Enable();
         new Patches.BundledScenes.LoadScenePatch().Enable();
         new Patches.SceneCaches.AwakePatch().Enable();
+        new Patches.KeeperRestore.BufferZoneContainerAwakePatch().Enable();
+        new Patches.KeeperRestore.KeeperZoneAwakePatch().Enable();
         new Patches.MemoryManagement.set_GCEnabledPatch().Enable();
         new Patches.Btr.LoadMapPathsConfigurationPatch().Enable();
         new Patches.Btr.LoadBTRVehiclePatch().Enable();
@@ -60,6 +63,7 @@ public sealed class Plugin : BaseUnityPlugin
         SceneManager.sceneLoaded += LighthouseAmbience.SceneLoaded;
         SceneManager.sceneLoaded += LighthouseShaderRebind.SceneLoaded;
         SceneManager.sceneLoaded += LighthouseTestEnvironment.SceneLoaded;
+        SceneManager.sceneLoaded += LighthouseAudioRouting.SceneLoaded;
         SceneManager.sceneUnloaded += LighthouseSceneLoader.SceneUnloaded;
 
         Log.LogInfo("Lighthouse loader registered. Matching client/server content is required; development test content requires explicit enablement.");
@@ -76,6 +80,7 @@ public sealed class Plugin : BaseUnityPlugin
         SceneManager.sceneLoaded -= LighthouseAmbience.SceneLoaded;
         SceneManager.sceneLoaded -= LighthouseShaderRebind.SceneLoaded;
         SceneManager.sceneLoaded -= LighthouseTestEnvironment.SceneLoaded;
+        SceneManager.sceneLoaded -= LighthouseAudioRouting.SceneLoaded;
 
         LighthouseSceneLoader.ReleaseIfUnused();
     }

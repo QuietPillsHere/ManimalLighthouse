@@ -1,13 +1,16 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using EFT;
 using Manimal.Lighthouse.Shared;
 using Newtonsoft.Json;
 using SPT.Common.Http;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using ZLinq;
 
 namespace Manimal.Lighthouse.Client;
 
@@ -19,6 +22,25 @@ internal static class LighthouseSceneLoader
     private static bool _loading;
     private static ScenesPreset? _ownedPreset;
     internal static bool HasReplacement => _ownedPreset;
+
+    // EFT's callback consumes increments in scene units, not an absolute percentage.
+    private const int PreparationSceneUnits = 3;
+    private sealed class PreparationProgress(IProgress<float>? target) : IProgress<float>
+    {
+        private float _reported;
+        private bool _closed;
+
+        public void Report(float value)
+        {
+            if (_closed || float.IsNaN(value)) return;
+            value = Math.Max(_reported, Math.Min(1f, value));
+            var delta = value - _reported;
+            _reported = value;
+            if (delta > 0f) target?.Report(delta * PreparationSceneUnits);
+        }
+
+        internal void Close() => _closed = true;
+    }
 
     public static bool Prefix(LoadScenesFromPresetOperation __instance, ScenesPreset preset, ref Task __result)
     {
@@ -49,6 +71,8 @@ internal static class LighthouseSceneLoader
         _loading = true;
 
         var succeeded = false;
+        var preparation = new PreparationProgress(operation._progress);
+        var timer = Stopwatch.StartNew();
 
         try
         {
@@ -58,6 +82,13 @@ internal static class LighthouseSceneLoader
             var manifest = JsonConvert.DeserializeObject<ContentManifest>(await File.ReadAllTextAsync(path))!;
 
             ManifestRules.Validate(manifest);
+            var donorCount = ManifestRules.UsesNativeEnvironment(manifest)
+                ? native._scenesResourceKeys.AsValueEnumerable().Count(original =>
+                    native.ShouldLoadScene(original) &&
+                    (ReferenceEquals(original, native._scenesResourceKeys[0]) ||
+                     Path.GetFileNameWithoutExtension(original.path) == "Lighthouse_Sound"))
+                : 0;
+            operation._totalScenesToLoad = native.GetTotalSceneCount() + donorCount + PreparationSceneUnits;
 
             if (!manifest.Ready && manifest.Mode != "test")
             {
@@ -89,23 +120,36 @@ internal static class LighthouseSceneLoader
             var response = JsonConvert.DeserializeObject<ServerCapability>(await request)!;
 
             ManifestRules.CheckCapability(manifest, ManifestRules.Hash(path), response);
+            Plugin.Log.LogInfo($"Lighthouse preparation: server check completed in {timer.Elapsed.TotalSeconds:F1}s; verifying files.");
+            preparation.Report(0.02f);
+            // Capture Unity's synchronization context before starting disk work.
+            IProgress<float> verificationProgress = new System.Progress<float>(value => preparation.Report(0.02f + value * 0.68f));
             var nativeDataPath = Application.dataPath;
             await Task.Run(() =>
             {
-                LighthouseNativeAssets.Verify(nativeDataPath, manifest, operation._cancellationToken);
+                LighthouseNativeAssets.Verify(nativeDataPath, manifest, operation._cancellationToken,
+                    value => verificationProgress.Report(value * 0.75f));
+                var payloadCount = manifest.Bundles.Count + manifest.Sidecars.Count;
+                var payloadIndex = 0;
                 foreach (var bundle in manifest.Bundles)
                 {
                     operation._cancellationToken.ThrowIfCancellationRequested();
-                    ManifestRules.VerifyFile(Plugin.Root, bundle.Path, bundle.Sha256);
+                    LighthouseVerifiedFiles.Verify(Plugin.Root, bundle.Path, bundle.Sha256, operation._cancellationToken,
+                        value => verificationProgress.Report(0.75f + 0.25f * (payloadIndex + value) / payloadCount));
+                    payloadIndex++;
                 }
 
                 foreach (var sidecar in manifest.Sidecars)
                 {
                     operation._cancellationToken.ThrowIfCancellationRequested();
-                    ManifestRules.VerifyFile(Plugin.Root, sidecar.Path, sidecar.Sha256);
+                    LighthouseVerifiedFiles.Verify(Plugin.Root, sidecar.Path, sidecar.Sha256, operation._cancellationToken,
+                        value => verificationProgress.Report(0.75f + 0.25f * (payloadIndex + value) / payloadCount));
+                    payloadIndex++;
                 }
             }, operation._cancellationToken);
             operation._cancellationToken.ThrowIfCancellationRequested();
+            preparation.Report(0.70f);
+            Plugin.Log.LogInfo($"Lighthouse preparation: file verification finished at {timer.Elapsed.TotalSeconds:F1}s; opening bundles asynchronously.");
 
             if (Bundles.Count != 0)
             {
@@ -115,10 +159,17 @@ internal static class LighthouseSceneLoader
             LighthouseShaderRebind.CaptureNativeShaders();
 
             var available = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            var bundleIndex = 0;
 
             foreach (var entry in manifest.Bundles)
             {
-                var bundle = AssetBundle.LoadFromFile(ManifestRules.Resolve(Plugin.Root, entry.Path));
+                operation._cancellationToken.ThrowIfCancellationRequested();
+                var bundleProgress = Cysharp.Threading.Tasks.Progress.Create<float>(value =>
+                    preparation.Report(0.70f + 0.30f * (bundleIndex + value) / manifest.Bundles.Count));
+                // Unity cannot cancel this request. Own its result before honoring cancellation,
+                // so failure cleanup can unload it instead of leaking the bundle.
+                var bundle = await AssetBundle.LoadFromFileAsync(ManifestRules.Resolve(Plugin.Root, entry.Path))
+                    .ToUniTask(progress: bundleProgress);
 
                 if (!bundle)
                 {
@@ -126,6 +177,7 @@ internal static class LighthouseSceneLoader
                 }
 
                 Bundles.Add(bundle);
+                operation._cancellationToken.ThrowIfCancellationRequested();
 
                 switch (entry.Path)
                 {
@@ -153,7 +205,13 @@ internal static class LighthouseSceneLoader
                         throw new InvalidDataException("Duplicate bundled scene path: " + scene);
                     }
                 }
+                bundleIndex++;
+                preparation.Report(0.70f + 0.30f * bundleIndex / manifest.Bundles.Count);
             }
+
+            preparation.Report(1f);
+            preparation.Close();
+            Plugin.Log.LogInfo($"Lighthouse preparation completed in {timer.Elapsed.TotalSeconds:F1}s; starting scenes.");
 
             if (native._scenesResourceKeys.Count != manifest.Scenes.Count)
             {
@@ -194,7 +252,7 @@ internal static class LighthouseSceneLoader
             _ownedPreset = UnityEngine.Object.Instantiate(native);
             InGameMemoryManagement.GCEnabled = true;
             _ownedPreset._scenesResourceKeys = replacementKeys;
-            operation._totalScenesToLoad = _ownedPreset.GetTotalSceneCount();
+            operation._totalScenesToLoad = _ownedPreset.GetTotalSceneCount() + donorCount + PreparationSceneUnits;
             LighthouseSidecars.Activate(manifest);
             Plugin.Log.LogInfo(
                 "Loading coherent Lighthouse content " + manifest.ContentId + " (29 replacement scenes).");
@@ -241,6 +299,7 @@ internal static class LighthouseSceneLoader
         }
         finally
         {
+            preparation.Close();
             try
             {
                 if (!succeeded)
@@ -330,6 +389,8 @@ internal static class LighthouseSceneLoader
         NativeDonorScenes.Clear();
         LighthouseSidecars.Clear();
         LighthouseShaderRebind.Clear();
+        LighthouseKeeperRestore.Clear();
+        LighthouseAudioRouting.Clear();
 
         if (_ownedPreset)
         {

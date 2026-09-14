@@ -21,6 +21,14 @@
       <HintPath>$(ServerPath)/JetBrains.Annotations.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="SPTarkov.Reflection">
+      <HintPath>$(ServerPath)/SPTarkov.Reflection.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(ServerPath)/0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="SPTarkov.DI">
       <HintPath>$(ServerPath)/SPTarkov.DI.dll</HintPath>
       <Private>false</Private>
