@@ -27,6 +27,9 @@ public sealed class Plugin : BaseUnityPlugin
         AllowProbe = Config.Bind("Development", "AllowProbeContent", false, "Allow explicitly marked loader-test content. Leave disabled for normal raids.");
         AllowTest = Config.Bind("Development", "AllowTestContent", false, "Load the explicitly marked full-map test build, with native SPT environment managers and documented incomplete features.");
         CaptureRain = Config.Bind("Diagnostics", "CaptureRain", false, "Capture rain material/depth diagnostics. Expensive scene scans and GPU readback; enable only for an explicitly requested capture.");
+        // BepInEx/cache is the conventional throwaway spot: deleting it just forces one full rehash.
+        // fully qualified — an unqualified Paths resolves to some other referenced type here
+        LighthouseVerifiedFiles.CacheFile = Path.Combine(BepInEx.Paths.BepInExRootPath, "cache", "manimal-lighthouse-verified-files.txt");
 
         new Patches.SceneLoader.LoadPresetAsyncReversePatch().Enable();
         new Patches.SceneLoader.LoadPresetAsyncPatch().Enable();

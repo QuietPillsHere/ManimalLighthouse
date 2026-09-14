@@ -1,6 +1,7 @@
 using System;
 using System.Buffers;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Security.Cryptography;
 using System.Threading;
@@ -8,15 +9,23 @@ using Manimal.Lighthouse.Shared;
 
 namespace Manimal.Lighthouse.Client;
 
-// Session-only verification for files that are loaded by the replacement scene.
-// The cache deliberately contains no persisted state: every process still gets a
-// fresh content check the first time it sees a file.
+// Verification of files loaded by the replacement scenes. A file is hashed once and
+// remembered by path + expected hash + length + mtime; when CacheFile is set the
+// entries persist across processes, so the multi-GB native contract only costs a
+// full read after an install changes. Size and mtime are the invalidation signal —
+// an in-place edit that preserves both would slip through, which is the usual
+// trade-off for this kind of cache.
 internal static class LighthouseVerifiedFiles
 {
     private const int HashBufferSize = 1024 * 1024;
     private const double ProgressIntervalSeconds = 0.1;
+    private const int MaxPersistedEntries = 4096;
     private static readonly object CacheLock = new();
     private static readonly HashSet<VerificationKey> Verified = new();
+    private static bool _loaded;
+
+    // set once by the plugin; null keeps the cache in memory only (tests, probes)
+    internal static string? CacheFile { get; set; }
 
     internal static void Verify(
         string root,
@@ -40,6 +49,7 @@ internal static class LighthouseVerifiedFiles
 
         lock (CacheLock)
         {
+            EnsureLoaded();
             if (Verified.Contains(key))
             {
                 progress?.Invoke(1f);
@@ -70,7 +80,115 @@ internal static class LighthouseVerifiedFiles
         lock (CacheLock)
         {
             cancellationToken.ThrowIfCancellationRequested();
-            Verified.Add(key);
+            if (Verified.Add(key))
+            {
+                Persist(key);
+            }
+        }
+    }
+
+    // tests only: forget the in-memory entries so the next Verify reloads from disk
+    internal static void ClearMemoryCache()
+    {
+        lock (CacheLock)
+        {
+            Verified.Clear();
+            _loaded = false;
+        }
+    }
+
+    private static void EnsureLoaded()
+    {
+        if (_loaded)
+        {
+            return;
+        }
+
+        _loaded = true;
+        var file = CacheFile;
+        if (string.IsNullOrEmpty(file) || !File.Exists(file))
+        {
+            return;
+        }
+
+        var kept = new List<VerificationKey>();
+        var dropped = 0;
+        try
+        {
+            foreach (var line in File.ReadAllLines(file))
+            {
+                if (!VerificationKey.TryParse(line, out var key))
+                {
+                    dropped++;
+                    continue;
+                }
+
+                // entries whose file moved on are dead weight; prune them at load
+                var info = new FileInfo(key.Path);
+                if (!info.Exists || !key.Matches(info))
+                {
+                    dropped++;
+                    continue;
+                }
+
+                if (Verified.Add(key))
+                {
+                    kept.Add(key);
+                }
+            }
+        }
+        catch (Exception)
+        {
+            // an unreadable cache only costs a rehash
+            return;
+        }
+
+        if (dropped != 0 || kept.Count > MaxPersistedEntries)
+        {
+            Rewrite(file, kept);
+        }
+    }
+
+    private static void Persist(VerificationKey key)
+    {
+        var file = CacheFile;
+        if (string.IsNullOrEmpty(file))
+        {
+            return;
+        }
+
+        try
+        {
+            Directory.CreateDirectory(Path.GetDirectoryName(file)!);
+            File.AppendAllText(file, key.ToLine() + "\n");
+        }
+        catch (Exception)
+        {
+            // persistence is best effort; the in-memory entry still holds for this process
+        }
+    }
+
+    private static void Rewrite(string file, List<VerificationKey> keys)
+    {
+        try
+        {
+            var temp = file + ".tmp";
+            using (var writer = new StreamWriter(temp, false))
+            {
+                var start = Math.Max(0, keys.Count - MaxPersistedEntries);
+                for (var index = start; index < keys.Count; index++)
+                {
+                    writer.Write(keys[index].ToLine());
+                    writer.Write('\n');
+                }
+            }
+
+            File.Copy(temp, file, true);
+            File.Delete(temp);
+        }
+        catch (Exception)
+        {
+            // stale lines just get pruned again next load
         }
     }
 
@@ -198,6 +316,42 @@ internal static class LighthouseVerifiedFiles
             _sha256 = sha256;
             _length = length;
             _modified = modified;
+        }
+
+        internal string Path => _path;
+
+        internal bool Matches(FileInfo info) => info.Length == _length && info.LastWriteTimeUtc.Ticks == _modified;
+
+        // one line per entry: sha256 \t length \t mtime ticks \t full path
+        internal string ToLine() =>
+            _sha256 + "\t" + _length.ToString(CultureInfo.InvariantCulture) + "\t"
+            + _modified.ToString(CultureInfo.InvariantCulture) + "\t" + _path;
+
+        internal static bool TryParse(string line, out VerificationKey key)
+        {
+            key = default;
+            var parts = line.Split('\t');
+            if (parts.Length != 4 || parts[0].Length != 64 || parts[3].Length == 0)
+            {
+                return false;
+            }
+
+            foreach (var character in parts[0])
+            {
+                if (character is (< '0' or > '9') and (< 'a' or > 'f'))
+                {
+                    return false;
+                }
+            }
+
+            if (!long.TryParse(parts[1], NumberStyles.None, CultureInfo.InvariantCulture, out var length)
+                || !long.TryParse(parts[2], NumberStyles.None, CultureInfo.InvariantCulture, out var modified))
+            {
+                return false;
+            }
+
+            key = new VerificationKey(parts[3], parts[0], length, modified);
+            return true;
         }
 
         public bool Equals(VerificationKey other) =>
