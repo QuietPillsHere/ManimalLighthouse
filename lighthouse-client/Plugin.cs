@@ -10,6 +10,7 @@ namespace Manimal.Lighthouse.Client;
 
 [BepInPlugin(ModIdentity.Guid, ModIdentity.ClientName, ModIdentity.Version)]
 [BepInDependency("com.arys.unitytoolkit")]
+[BepInDependency("xyz.drakia.waypoints", BepInDependency.DependencyFlags.SoftDependency)]
 public sealed class Plugin : BaseUnityPlugin
 {
     internal static ManualLogSource Log = null!;
@@ -62,6 +63,7 @@ public sealed class Plugin : BaseUnityPlugin
         LighthouseAmbience.Install();
 
         new Patches.Ambience.InitPatch().Enable();
+        LighthouseWaypointsCompatibility.EnableIfAvailable();
 
         SceneManager.sceneLoaded += LighthouseAmbience.SceneLoaded;
         SceneManager.sceneLoaded += LighthouseShaderRebind.SceneLoaded;
